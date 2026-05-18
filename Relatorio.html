@@ -1,65 +1,57 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Relatório</title>
     <link rel="stylesheet" href="relatorio.css">
 </head>
 <body>
     <header>
         <div class="logo">
-           
-   <Img src="WhatsApp Image 2026-05-13 at 14.58.50.jpeg">
-            
+            <img src="WhatsApp Image 2026-05-13 at 14.58.50.jpeg" alt="Logo Funerária">
             Funerária de la paz
         </div>     
-<nav> <!--barra de cima -->
-<a href="">assistência social</a>
-<a href="agenda.html">agenda</a>
-<a href="">acessibilidade</a>
-<a href="">login</a>
-</nav>
-</header>
+        <nav> <a href="">assistência social</a>
+            <a href="agenda.html">agenda</a>
+            <a href="">acessibilidade</a>
+            <a href="">login</a>
+        </nav>
+    </header>
 
+    <main>
+        <form action="Relatorio.php" method="post">
+            
+            <h2>Relatórios - Consulta de Falecidos</h2>
+            
+            <div class="card">
+                <label for="idFalecido">ID do Falecido</label>
+                
+                <div class="busca">
+                    <input type="text" id="idFalecido" placeholder="Digite o ID (ex: 001, 002, 003)">
+                    <button type="button" onclick="buscar()">Buscar</button>
+                </div>
+            </div>
+            
+            <p class="info">
+                Digite um ID e clique em Buscar para visualizar os dados
+                <br> 
+                IDs disponíveis: 001, 002, 003
+            </p>
+            
+            <div id="resultado"></div>
+        </form>
+    </main>
 
-<main>
+    <footer>
+        <div>
+            © 2026 Funerária De La Paz. Todos os direitos reservados.
+        </div>
+        <div>
+            ajuda ❔
+        </div>
+    </footer>
 
-<h2>Relatórios - Consulta de Falecidos</h2>
-
-<div class="card">
-
-<label>ID do Falecido</label>
-
-<div class="busca">
-<input type="text" id="idFalecido" placeholder="Digite o ID (ex: 001, 002, 003)">
-<button onclick="buscar()"> Buscar</button>
-</div>
-
-</div>
-
-<p class="info">
-Digite um ID e clique em Buscar para visualizar os dados
-<br> <!--exemplo de codigo-->
-IDs disponíveis: 001, 002, 003
-</p>
-
-<div id="resultado"></div>
-
-</main>
-
-<!--barra final-->
-<footer>
-<div>
-© 2026 Funerária De La Paz. Todos os direitos reservados.
-</div>
-
-<div>
-ajuda ❔
-</div>
-</footer>
-
-<script src="relatorio.js"></script>
-
+    <script src="relatorio.js"></script>
 </body>
 </html>
