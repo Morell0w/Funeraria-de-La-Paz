@@ -8,7 +8,7 @@ CREATE TABLE Planos (
     valor_mensal DECIMAL(10, 2),
     descricao TEXT
 );
-)
+
 CREATE TABLE Clientes (
     id_cliente INT PRIMARY KEY AUTO_INCREMENT,
     nome VARCHAR(100) NOT NULL,

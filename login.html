@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Funerária de La Paz</title>
+     <link rel="stylesheet" href="login.css">
+
+</head>
+<body>
+      <header>
+        <div class="logo">
+            <img src="ccd43164-5520-470d-b7e7-92dbdd34407a.png">
+        </div>
+        <h3>Funerária de La Paz</h3>
+        <div class="links">
+            <a href="#">Assistencia Social</a>
+            <a href="#">Acessibilidade</a>
+            <a href="#">Login</a>
+        </div>
+
+    </header>
+    <main>
+<div class="container">
+    <div id="loginForm">
+        <h2>Entrar</h2>
+        <form onsubmit="realizarLogin(event)">
+            <div class="input-group">
+                <label for="loginEmail">E-mail</label>
+                <input type="email" id="loginEmail" required>
+            </div>
+            <div class="input-group">
+                <label for="loginSenha">Senha</label>
+                <input type="password" id="loginSenha" required>
+            </div>
+            <button type="submit">Acessar</button>
+        </form>
+        <div class="switch-form">
+            Não tem uma conta? <a href="#">Cadastre-se</a>
+        </div>
+    </div>
+    <div id="cadastroForm" class="hidden">
+        <h2>Cadastrar</h2>
+        <form onsubmit="realizarCadastro(event)">
+            <div class="input-group">
+                <label for="cadNome">Nome Completo</label>
+                <input type="text" id="cadNome" required>
+            </div>
+            <div class="input-group">
+                <label for="cadEmail">E-mail</label>
+                <input type="email" id="cadEmail" required>
+            </div>
+            <div class="input-group">
+                <label for="cadSenha">Senha</label>
+                <input type="password" id="cadSenha" required>
+            </div>
+            <button type="submit">Criar Conta</button>
+        </form>
+        <div class="switch-form">
+            Já tem uma conta? <a href="#">Faça Login</a>
+        </div>
+    </div>
+</div>
+    </main>
+    <footer>
+
+    </footer>
+</body>
+</html>
