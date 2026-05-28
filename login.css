@@ -109,17 +109,90 @@ button:hover {
     display: none;
 }
 
+/* ==========================================================
+   MÁGICA DA ACESSIBILIDADE GLOBAL (ATUALIZADA COM NÍVEIS)
+   ========================================================== */
+
+/* 1. MODO ESCURO */
 body:has(#toggle-contraste:checked) {
-  --bg-color: #121212;
-  --text-color: #ffffff;
-  --link-color: #ffff00;
-  
-  /* Invertemos o fundo do header para destacar no modo escuro, ou mantemos se preferir */
-  --header-bg: #000000; 
-  --header-text: rgb(190, 245, 255); /* Uma cor de alto contraste para os links no modo escuro */
+    --bg-color: #121212;
+    --text-color: #ffffff;
+    --link-color: #ffff00;
+    --header-bg: #000000; 
+    --header-text: rgb(190, 245, 255);
 }
 
-/* Se a Fonte Grande estiver marcada, a mágica acontece pelo 'em' */
-body:has(#toggle-fonte:checked) {
-  --font-scale: 1.4; /* Aumenta o tamanho base, o que consequentemente aumenta os 'em' */
+/* 2. NÍVEIS DE FONTE */
+
+/* Nível Padrão (Não muda nada, mantém o padrão 1) */
+body:has(#fonte-padrao:checked) {
+    --font-scale: 1;
+}
+
+/* Nível Médio (Aumento de 25%) */
+body:has(#fonte-media:checked) {
+    --font-scale: 1.25;
+}
+
+/* Nível Grande (Aumento de 50%) */
+body:has(#fonte-grande:checked) {
+    --font-scale: 1.5;
+}
+
+/* O que acontece quando passar o mouse por cima (hover) */
+.sr-only:hover {
+  border-color: rgb(190, 245, 255); /* Uma cor de destaque ao passar o mouse ajuda na acessibilidade */
+}
+
+/* O que acontece quando o checkbox for MARCADO (checked) */
+.sr-only:checked {
+  background-color: #ffffff; /* Inverte o fundo para branco quando ativo */
+}
+
+/* Criando o símbolo de "✓" usando pseudo-elemento quando estiver marcado */
+.sr-only:checked::after {
+  content: '';
+  position: absolute;
+  left: 5px;
+  top: 1px;
+  width: 5px;
+  height: 10px;
+  border: solid black;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+/* ... Seu código das classes .sr-only e .btn-acessivel continua igual ... */
+
+
+/* ==========================================================
+   MÁGICA DA ACESSIBILIDADE GLOBAL (AGORA POR CLASSES)
+   ========================================================== */
+
+/* 1. MODO ESCURO COORDENADO PELO JS */
+body.modo-escuro-ativo {
+    --bg-color: #121212;
+    --text-color: #ffffff;
+    --link-color: #ffff00;
+    --header-bg: #000000; 
+    --header-text: rgb(190, 245, 255);
+}
+
+/* 2. NÍVEIS DE FONTE COORDENADOS PELO JS */
+body.fonte-padrao-ativa { --font-scale: 1; }
+body.fonte-media-ativa  { --font-scale: 1.25; }
+body.fonte-grande-ativa { --font-scale: 1.5; }
+body.fonte-daniel-ativa { --font-scale: 1.75; }
+
+
+/* MANTENDO O VISUAL DOS BOTÕES ATIVOS NA TELA DE CONFIGURAÇÃO */
+body.modo-escuro-ativo #toggle-contraste + .btn-acessivel,
+body.fonte-padrao-ativa #fonte-padrao + .btn-acessivel,
+body.fonte-media-ativa #fonte-media + .btn-acessivel,
+body.fonte-grande-ativa #fonte-grande + .btn-acessivel,
+body.fonte-daniel-ativa #fonte-daniel + .btn-acessivel {
+    background-color: #ffffff;
+    color: #000000;
+    border-color: #ffffff;
+    font-weight: bold;
 }
