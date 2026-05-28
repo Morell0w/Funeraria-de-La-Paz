@@ -1,42 +1,60 @@
-// Executa o código assim que a página carrega
 document.addEventListener("DOMContentLoaded", () => {
-    // 1. Monitora cliques em qualquer input do painel de acessibilidade
-    document.querySelectorAll('.painel-acessibilidade input').forEach(input => {
-        input.addEventListener('change', (e) => {
-            // Salva se o checkbox/radio está marcado (true/false ou o id dele)
-            if (e.target.type === 'checkbox') {
-                localStorage.setItem(e.target.id, e.target.checked);
-            } else if (e.target.type === 'radio') {
-                localStorage.setItem('escala-fonte', e.target.id);
-            }
-            atualizarAcessibilidade();
-        });
-    });
-
-    // 2. Função que lê a memória e aplica as classes no <body>
-    function atualizarAcessibilidade() {
+    
+    // ==========================================================
+    // 1. FUNÇÃO GLOBAL: Lê a memória e aplica no <body>
+    // ==========================================================
+    function aplicarConfiguracoesSalvas() {
         const body = document.body;
         
-        // Modo Escuro
+        // Aplica o Modo Escuro baseado na memória
         const modoEscuroAtivo = localStorage.getItem('toggle-contraste') === 'true';
         body.classList.toggle('modo-escuro-ativo', modoEscuroAtivo);
         
-        // Mantém o checkbox visualmente marcado se o usuário mudar de página
+        // Se o botão de Modo Escuro existir NESTA página específica, deixa ele marcado
         const checkEscuro = document.getElementById('toggle-contraste');
-        if (checkEscuro) checkEscuro.checked = modoEscuroAtivo;
+        if (checkEscuro) {
+            checkEscuro.checked = modoEscuroAtivo;
+        }
 
-        // Escala de Fonte
+        // Aplica a Escala de Fonte baseada na memória (padrão é 'fonte-padrao')
         const fonteSalva = localStorage.getItem('escala-fonte') || 'fonte-padrao';
         
-        // Remove classes antigas de fonte e aplica a nova
+        // Remove qualquer classe antiga de fonte para não acumular
         body.classList.remove('fonte-padrao-ativa', 'fonte-media-ativa', 'fonte-grande-ativa', 'fonte-daniel-ativa');
+        // Adiciona a classe correspondente ao tamanho salvo
         body.classList.add(`${fonteSalva}-ativa`);
 
-        // Mantém o botão radio visualmente marcado se o usuário mudar de página
+        // Se os botões de rádio existirem NESTA página específica, deixa o correto marcado
         const radioFonte = document.getElementById(fonteSalva);
-        if (radioFonte) radioFonte.checked = true;
+        if (radioFonte) {
+            radioFonte.checked = true;
+        }
     }
 
-    // Carrega as configurações assim que entra na página
-    atualizarAcessibilidade();
+    // ==========================================================
+    // 2. FUNÇÃO DO PAINEL: Salva as escolhas (Só roda na tela que tem os botões)
+    // ==========================================================
+    const painel = document.querySelector('.painel-acessibilidade');
+    
+    // O 'if (painel)' garante que o código de salvar só rode se a página atual tiver o painel físico
+    if (painel) {
+        painel.querySelectorAll('input').forEach(input => {
+            input.addEventListener('change', (e) => {
+                
+                if (e.target.type === 'checkbox') {
+                    // Salva se o modo escuro está true ou false
+                    localStorage.setItem(e.target.id, e.target.checked);
+                } else if (e.target.type === 'radio') {
+                    // Salva o ID do tamanho de fonte escolhido (ex: fonte-media, fonte-daniel...)
+                    localStorage.setItem('escala-fonte', e.target.id);
+                }
+                
+                // Força a atualização imediata assim que o usuário clica
+                aplicarConfiguracoesSalvas();
+            });
+        });
+    }
+
+    // Executa a aplicação das configurações imediatamente ao carregar QUALQUER página
+    aplicarConfiguracoesSalvas();
 });
