@@ -208,3 +208,18 @@ footer a {
     color: #888;
     text-decoration: none;
 }
+
+body:has(#toggle-contraste:checked) {
+  --bg-color: #121212;
+  --text-color: #ffffff;
+  --link-color: #ffff00;
+  
+  /* Invertemos o fundo do header para destacar no modo escuro, ou mantemos se preferir */
+  --header-bg: #000000; 
+  --header-text: rgb(190, 245, 255); /* Uma cor de alto contraste para os links no modo escuro */
+}
+
+/* Se a Fonte Grande estiver marcada, a mágica acontece pelo 'em' */
+body:has(#toggle-fonte:checked) {
+  --font-scale: 1.4; /* Aumenta o tamanho base, o que consequentemente aumenta os 'em' */
+}

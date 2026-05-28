@@ -1,48 +1,74 @@
-body{
-    font-family: monospace;
-    background-color:  rgb(219, 219, 219);
+:root {
+  /* Cores Padrão */
+  --bg-color: #ffffff;
+  --text-color: #333333;
+  --link-color: #0066cc;
+  
+  /* Cores do Header (Adicionadas para controle global) */
+  --header-bg: linear-gradient(90deg, #000, #313131, #000);
+  --header-text: #ffffff;
+  
+  /* Tipografia Padrão */
+  --font-size-base: 16px;
+  --font-scale: 1;
 }
 
-header{
-display:flex;
-justify-content:space-between;
-align-items:center;
-padding:15px 40px;
-background: linear-gradient(90deg,#000,#313131,#000);
-color:white;
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 40px;
+  background: var(--header-bg); /* Mudado para variável */
+  color: var(--header-text);    /* Mudado para variável */
+  transition: all 0.3s ease;
 }
 
-#logo{
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    font-size: 25px
+#logo {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  /* Em vez de 25px fixo, usamos 'em' para que ele cresça proporcionalmente */
+  font-size: 1.5em; 
 }
 
-#links{
-    display: flex;
-    align-items: center;
-    gap: 60px;
-    font-size: 20px;
+#links {
+  display: flex;
+  align-items: center;
+  gap: 60px;
+  /* Em vez de 20px fixo, usamos 'em' */
+  font-size: 1.25em; 
 }
 
-header img{
-    height: 120px;
-    width: 120px;
-    background-color: white;
-    border-radius: 60px;
+header img {
+  height: 120px;
+  width: 120px;
+  background-color: white;
+  border-radius: 60px;
 }
 
-header a{
-    text-decoration: none;
-    color: white;
+header a {
+  text-decoration: none;
+  color: var(--header-text); /* Link segue a cor de texto do header */
 }
 
-header a:hover{
-    font-size: 23px;
-    transition: 0.5s;
-    font-weight: bold;
+header a:hover {
+  /* Se a fonte já aumenta pela acessibilidade, o hover muito grande pode quebrar o layout. 
+     Usar 1.1x do tamanho atual é mais seguro */
+  transform: scale(1.1); 
+  transition: 0.3s;
+  font-weight: bold;
 }
+
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  /* Usando rem ou em para que todo o resto do site herde a escala */
+  font-size: calc(var(--font-size-base) * var(--font-scale));
+  transition: all 0.3s ease;
+}
+
 
 #geral1 img{
     height: 150px;
@@ -139,4 +165,19 @@ display:flex;
 justify-content:center;
 padding:15px 40px;
 font-size:20px;
+}
+
+body:has(#toggle-contraste:checked) {
+  --bg-color: #121212;
+  --text-color: #ffffff;
+  --link-color: #ffff00;
+  
+  /* Invertemos o fundo do header para destacar no modo escuro, ou mantemos se preferir */
+  --header-bg: #000000; 
+  --header-text: rgb(190, 245, 255); /* Uma cor de alto contraste para os links no modo escuro */
+}
+
+/* Se a Fonte Grande estiver marcada, a mágica acontece pelo 'em' */
+body:has(#toggle-fonte:checked) {
+  --font-scale: 1.4; /* Aumenta o tamanho base, o que consequentemente aumenta os 'em' */
 }
