@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="acessibilidade.css">
+    <script src="acessibilidade.js"></script>
     <title>Acessibilidade</title>
 </head>
 <body>
@@ -19,21 +20,40 @@
         </div>
     </header>
 
-    <div class="geral1">
-        <div class="painel-acessibilidade">
-          <h3>Acessibilidade</h3>
-          
-          <label for="toggle-contraste" class="opcao">
-        <input type="checkbox" id="toggle-contraste" class="sr-only">
-        <span class="btn-acessivel">Modo Escuro</span>
-          </label>
+<div class="geral1">
+    <div class="painel-acessibilidade">
+        <h3>Acessibilidade</h3>
         
-          <label for="toggle-fonte" class="opcao">
-        <input type="checkbox" id="toggle-fonte" class="sr-only">
-        <span class="btn-acessivel">Aumentar Fonte</span>
-          </label>
-        </div>
+        <label for="toggle-contraste" class="opcao">
+            <input type="checkbox" id="toggle-contraste" class="sr-only">
+            <span class="btn-acessivel">Modo Escuro</span>
+        </label>
+
+        <div class="grupo-fontes">
+    <span>Tamanho da Fonte:</span>
+    
+    <label for="fonte-padrao" class="opcao">
+        <input type="radio" id="fonte-padrao" name="escala-fonte" class="sr-only" checked>
+        <span class="btn-acessivel">Padrão</span>
+    </label>
+
+    <label for="fonte-media" class="opcao">
+        <input type="radio" id="fonte-media" name="escala-fonte" class="sr-only">
+        <span class="btn-acessivel">Média</span>
+    </label>
+
+    <label for="fonte-grande" class="opcao">
+        <input type="radio" id="fonte-grande" name="escala-fonte" class="sr-only">
+        <span class="btn-acessivel">Grande</span>
+    </label>
+
+    <label for="fonte-daniel" class="opcao">
+        <input type="radio" id="fonte-daniel" name="escala-fonte" class="sr-only">
+        <span class="btn-acessivel">Daniel</span>
+    </label>
+</div>
     </div>
+</div>
     <footer>
         <p>&copy;2026 Funerária de La Paz, Todos os direitos reservados</p>
     </footer>

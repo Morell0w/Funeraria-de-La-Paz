@@ -21,6 +21,14 @@ body {
   transition: all 0.3s ease;
 }
 
+body:has(#fonte-grande:checked) {
+    --font-scale: 1.5;
+}
+
+body:has(#fonte-daniel:checked) {
+    --font-scale: 1.75; 
+}
+
 header {
   display: flex;
   justify-content: space-between;
@@ -77,6 +85,76 @@ header img {
   transition: all 0.2s ease;
 }
 
+/* Estilização padrão dos botões de opção */
+.btn-acessivel {
+    display: inline-block;
+    padding: 10px 20px;          /* Padding um pouco maior como você pediu */
+    background-color: transparent; 
+    color: #ffffff;              /* Força o texto do botão não selecionado a ser BRANCO */
+    border: 2px solid transparent; 
+    border-radius: 20px;         
+    cursor: pointer;
+    transition: all 0.2s ease;   
+}
+
+/* Efeito ao passar o mouse por cima das opções */
+.btn-acessivel:hover {
+    border-color: #ffffff;       /* Borda branca ao passar o mouse */
+    background-color: rgba(255, 255, 255, 0.1); /* Fundo levemente clareado */
+}
+
+/* Ajuste no container das fontes para dar um respiro no layout */
+.grupo-fontes {
+    margin-top: 20px;
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap; /* Evita que quebre em telas menores */
+}
+
+/* Quando a opção for selecionada... */
+body:has(#toggle-contraste:checked) #toggle-contraste + .btn-acessivel,
+body:has(#fonte-padrao:checked) #fonte-padrao + .btn-acessivel,
+body:has(#fonte-media:checked) #fonte-media + .btn-acessivel,
+body:has(#fonte-grande:checked) #fonte-grande + .btn-acessivel,
+body:has(#fonte-daniel:checked) #fonte-daniel + .btn-acessivel { /* Adicionado aqui */
+    background-color: #ffffff;
+    color: #000000;
+    border-color: #ffffff;
+    font-weight: bold;
+}
+
+/* ==========================================================
+   MÁGICA DA ACESSIBILIDADE GLOBAL (ATUALIZADA COM NÍVEIS)
+   ========================================================== */
+
+/* 1. MODO ESCURO */
+body:has(#toggle-contraste:checked) {
+    --bg-color: #121212;
+    --text-color: #ffffff;
+    --link-color: #ffff00;
+    --header-bg: #000000; 
+    --header-text: rgb(190, 245, 255);
+}
+
+/* 2. NÍVEIS DE FONTE */
+
+/* Nível Padrão (Não muda nada, mantém o padrão 1) */
+body:has(#fonte-padrao:checked) {
+    --font-scale: 1;
+}
+
+/* Nível Médio (Aumento de 25%) */
+body:has(#fonte-media:checked) {
+    --font-scale: 1.25;
+}
+
+/* Nível Grande (Aumento de 50%) */
+body:has(#fonte-grande:checked) {
+    --font-scale: 1.5;
+}
+
 /* O que acontece quando passar o mouse por cima (hover) */
 .sr-only:hover {
   border-color: rgb(190, 245, 255); /* Uma cor de destaque ao passar o mouse ajuda na acessibilidade */
@@ -117,7 +195,7 @@ header a:hover {
     background-color: black;
     border: 5px solid white; /* Corrigido: o atalho precisa da palavra 'solid' */
     border-radius: 8px;
-    color: white;
+    color: #ffffff;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -155,21 +233,33 @@ footer {
 
 
 /* ==========================================================
-   MÁGICA DA ACESSIBILIDADE GLOBAL (ATUALIZADA)
+   MÁGICA DA ACESSIBILIDADE GLOBAL (AGORA POR CLASSES)
    ========================================================== */
 
-/* Se o Modo Escuro estiver marcado */
-body:has(#toggle-contraste:checked) {
-  --bg-color: #121212;
-  --text-color: #ffffff;
-  --link-color: #ffff00;
-  
-  /* Invertemos o fundo do header para destacar no modo escuro, ou mantemos se preferir */
-  --header-bg: #000000; 
-  --header-text: rgb(190, 245, 255); /* Uma cor de alto contraste para os links no modo escuro */
+/* 1. MODO ESCURO COORDENADO PELO JS */
+body.modo-escuro-ativo {
+    --bg-color: #121212;
+    --text-color: #ffffff;
+    --link-color: #ffff00;
+    --header-bg: #000000; 
+    --header-text: rgb(190, 245, 255);
 }
 
-/* Se a Fonte Grande estiver marcada, a mágica acontece pelo 'em' */
-body:has(#toggle-fonte:checked) {
-  --font-scale: 1.4; /* Aumenta o tamanho base, o que consequentemente aumenta os 'em' */
+/* 2. NÍVEIS DE FONTE COORDENADOS PELO JS */
+body.fonte-padrao-ativa { --font-scale: 1; }
+body.fonte-media-ativa  { --font-scale: 1.25; }
+body.fonte-grande-ativa { --font-scale: 1.5; }
+body.fonte-daniel-ativa { --font-scale: 1.75; }
+
+
+/* MANTENDO O VISUAL DOS BOTÕES ATIVOS NA TELA DE CONFIGURAÇÃO */
+body.modo-escuro-ativo #toggle-contraste + .btn-acessivel,
+body.fonte-padrao-ativa #fonte-padrao + .btn-acessivel,
+body.fonte-media-ativa #fonte-media + .btn-acessivel,
+body.fonte-grande-ativa #fonte-grande + .btn-acessivel,
+body.fonte-daniel-ativa #fonte-daniel + .btn-acessivel {
+    background-color: #ffffff;
+    color: #000000;
+    border-color: #ffffff;
+    font-weight: bold;
 }
