@@ -1,0 +1,175 @@
+:root {
+  /* Cores Padrão */
+  --bg-color: #ffffff;
+  --text-color: #333333;
+  --link-color: #0066cc;
+  
+  /* Cores do Header (Adicionadas para controle global) */
+  --header-bg: linear-gradient(90deg, #000, #313131, #000);
+  --header-text: #ffffff;
+  
+  /* Tipografia Padrão */
+  --font-size-base: 16px;
+  --font-scale: 1;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  /* Usando rem ou em para que todo o resto do site herde a escala */
+  font-size: calc(var(--font-size-base) * var(--font-scale));
+  transition: all 0.3s ease;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 40px;
+  background: var(--header-bg); /* Mudado para variável */
+  color: var(--header-text);    /* Mudado para variável */
+  transition: all 0.3s ease;
+}
+
+#logo {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  /* Em vez de 25px fixo, usamos 'em' para que ele cresça proporcionalmente */
+  font-size: 1.5em; 
+}
+
+#links {
+  display: flex;
+  align-items: center;
+  gap: 60px;
+  /* Em vez de 20px fixo, usamos 'em' */
+  font-size: 1.25em; 
+}
+
+header img {
+  height: 120px;
+  width: 120px;
+  background-color: white;
+  border-radius: 60px;
+}
+
+.sr-only {
+  /* Remove o visual padrão do navegador */
+  -webkit-appearance: none;
+  appearance: none;
+  
+  /* Define o tamanho do quadradinho */
+  width: 18px;
+  height: 18px;
+  
+  /* Aplica o fundo preto e a borda branca */
+  background-color: #000000;
+  border: 2px solid #ffffff;
+  border-radius: 4px; /* Deixa as pontas levemente arredondadas, opcional */
+  
+  /* Alinhamento para ficar bonitinho com o texto */
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 8px;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.2s ease;
+}
+
+/* O que acontece quando passar o mouse por cima (hover) */
+.sr-only:hover {
+  border-color: rgb(190, 245, 255); /* Uma cor de destaque ao passar o mouse ajuda na acessibilidade */
+}
+
+/* O que acontece quando o checkbox for MARCADO (checked) */
+.sr-only:checked {
+  background-color: #ffffff; /* Inverte o fundo para branco quando ativo */
+}
+
+/* Criando o símbolo de "✓" usando pseudo-elemento quando estiver marcado */
+.sr-only:checked::after {
+  content: '';
+  position: absolute;
+  left: 5px;
+  top: 1px;
+  width: 5px;
+  height: 10px;
+  border: solid black;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+header a {
+  text-decoration: none;
+  color: var(--header-text); /* Link segue a cor de texto do header */
+}
+
+header a:hover {
+  /* Se a fonte já aumenta pela acessibilidade, o hover muito grande pode quebrar o layout. 
+     Usar 1.1x do tamanho atual é mais seguro */
+  transform: scale(1.1); 
+  transition: 0.3s;
+  font-weight: bold;
+}
+
+.geral1 {
+    background-color: black;
+    border: 5px solid white; /* Corrigido: o atalho precisa da palavra 'solid' */
+    border-radius: 8px;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-top: 300px;
+    
+    /* SOLUÇÃO AQUI */
+    width: fit-content; 
+    margin-left: auto;  /* Centraliza a div na horizontal */
+    margin-right: auto; /* Centraliza a div na horizontal */
+    padding: 20px;      /* Um espacinho interno para o conteúdo não colar na borda */
+}
+
+footer {
+  /* Substitui o margin fixo por um cálculo que respeita a escala ou use um valor padrão */
+  margin-top: 390px; 
+  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 15px 40px;
+  
+  /* Pega as mesmas cores que definimos para o topo do site */
+  background: var(--header-bg); 
+  color: var(--header-text);
+  
+  /* De 20px fixo para 1.25em (assim ele cresce junto com o botão de aumentar fonte) */
+  font-size: 1.25em; 
+  
+  /* Suaviza a transição quando os botões forem acionados */
+  transition: all 0.3s ease; 
+}
+
+/* ... Seu código das classes .sr-only e .btn-acessivel continua igual ... */
+
+
+/* ==========================================================
+   MÁGICA DA ACESSIBILIDADE GLOBAL (ATUALIZADA)
+   ========================================================== */
+
+/* Se o Modo Escuro estiver marcado */
+body:has(#toggle-contraste:checked) {
+  --bg-color: #121212;
+  --text-color: #ffffff;
+  --link-color: #ffff00;
+  
+  /* Invertemos o fundo do header para destacar no modo escuro, ou mantemos se preferir */
+  --header-bg: #000000; 
+  --header-text: rgb(190, 245, 255); /* Uma cor de alto contraste para os links no modo escuro */
+}
+
+/* Se a Fonte Grande estiver marcada, a mágica acontece pelo 'em' */
+body:has(#toggle-fonte:checked) {
+  --font-scale: 1.4; /* Aumenta o tamanho base, o que consequentemente aumenta os 'em' */
+}
