@@ -1,15 +1,36 @@
-body{
-    font-family: monospace;
-    background-color:  rgb(219, 219, 219);
+:root {
+    /* Cores Padrão */
+    --bg-color: #ffffff;
+    --text-color: #333333;
+    --link-color: #0066cc;
+
+    /* Cores do Header (Adicionadas para controle global) */
+    --header-bg: linear-gradient(90deg, #000, #313131, #000);
+    --header-text: #ffffff;
+
+    /* Tipografia Padrão */
+    --font-size-base: 16px;
+    --font-scale: 1;
 }
 
-header{
-display:flex;
-justify-content:space-between;
-align-items:center;
-padding:15px 40px;
-background: linear-gradient(90deg,#000,#313131,#000);
-color:white;
+
+body {
+    font-family: Arial;
+    margin: 0;
+    background: var(--bg-color);
+    font-size: calc(var(--font-size-base) * var(--font-scale));
+    transition: all 0.3s ease;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 40px;
+    transition: all 0.3s ease;
+
+    background: (var(--header-bg));
+    color: var(--header-text);
 }
 
 #logo{
@@ -28,6 +49,7 @@ color:white;
 header h3{
     color: aliceblue;
    margin-left: -1400px;
+   padding-left: -1400px;
     
 
 }
