@@ -1,44 +1,47 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Relatório</title>
     <link rel="stylesheet" href="relatorio.css">
 </head>
+
 <body>
     <header>
         <div class="logo">
             <img src="WhatsApp Image 2026-05-13 at 14.58.50.jpeg" alt="Logo Funerária">
             Funerária de la paz
-        </div>     
+        </div>
         <nav> <a href="">assistência social</a>
             <a href="agenda.html">agenda</a>
             <a href="">acessibilidade</a>
             <a href="login.html">login</a>
+            <a href="index.html">Menu</a>
         </nav>
     </header>
 
     <main>
         <form action="Relatorio.php" method="post">
-            
+
             <h2>Relatórios - Consulta de Falecidos</h2>
-            
+
             <div class="card">
                 <label for="idFalecido">ID do Falecido</label>
-                
+
                 <div class="busca">
                     <input type="text" id="idFalecido" placeholder="Digite o ID (ex: 001, 002, 003)">
                     <button type="button" onclick="buscar()">Buscar</button>
                 </div>
             </div>
-            
+
             <p class="info">
                 Digite um ID e clique em Buscar para visualizar os dados
-                <br> 
+                <br>
                 IDs disponíveis: 001, 002, 003
             </p>
-            
+
             <div id="resultado"></div>
         </form>
     </main>
@@ -54,4 +57,5 @@
 
     <script src="relatorio.js"></script>
 </body>
+
 </html>

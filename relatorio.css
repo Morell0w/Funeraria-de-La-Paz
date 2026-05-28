@@ -1,115 +1,170 @@
-body{
-font-family: Arial;
-margin:0;
-background:#efefef;
+:root {
+    /* Cores Padrão */
+    --bg-color: #ffffff;
+    --text-color: #333333;
+    --link-color: #0066cc;
+
+    /* Cores do Header (Adicionadas para controle global) */
+    --header-bg: linear-gradient(90deg, #000, #313131, #000);
+    --header-text: #ffffff;
+
+    /* Tipografia Padrão */
+    --font-size-base: 16px;
+    --font-scale: 1;
 }
 
-/* HEADER */
-/*barra de cima*/
-header{
-display:flex;
-justify-content:space-between;
-align-items:center;
-padding:15px 40px;
 
-background: linear-gradient(90deg,#000,#444,#000);
-color:white;
+body {
+    font-family: Arial;
+    margin: 0;
+    background: var(--bg-color);
+    font-size: calc(var(--font-size-base) * var(--font-scale));
+    transition: all 0.3s ease;
 }
-a:hover{
-color: #ffffff;
-font-size: large;
-transition: 0.5s;
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 40px;
+    transition: all 0.3s ease;
+
+    background: (var(--header-bg));
+    color: var(--header-text);
 }
-nav a{
-color:white;
-margin-left:25px;
-text-decoration:none;
-font-size:14px;
+
+
+#logo {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    /* Em vez de 25px fixo, usamos 'em' para que ele cresça proporcionalmente */
+    font-size: 1.5em;
+}
+
+#links {
+    display: flex;
+    align-items: center;
+    gap: 60px;
+    /* Em vez de 20px fixo, usamos 'em' */
+    font-size: 1.25em;
+}
+
+a:hover {
+    color: var(--link-color);
+    font-size: var(--font-size-base);
+    transition: 0.5s;
+}
+
+nav a {
+    color: white;
+    margin-left: 25px;
+    text-decoration: none;
+    font-size: var(--font-size-base);
 }
 
 /* CONTEUDO */
 
-main{
-text-align:center;
-margin-top:80px;
+main {
+    text-align: center;
+    margin-top: 80px;
 }
 
-h2{
-margin-bottom:30px;
-color:#333;
+h2 {
+    margin-bottom: 30px;
+    color: #333;
 }
 
-.card{
-width:550px;
-margin:auto;
-background:white;
-padding:25px;
-border-radius:8px;
-box-shadow:0px 2px 6px rgba(0,0,0,0.2);
-text-align:left;
+.card {
+    width: 550px;
+    margin: auto;
+    background: var(--bg-color);
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.2);
+    text-align: left;
 }
 
-label{
-font-size:14px;
-color:#444;
+label {
+    font-size: var(--font-size-base);
+    color: #444;
 }
 
-.busca{
-display:flex;
-margin-top:10px;
+.busca {
+    display: flex;
+    margin-top: 10px;
 }
 
-.busca input{
-flex:1;
-padding:10px;
-border:1px solid #ccc;
-border-radius:6px;
+.busca input {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
 }
 
-.busca button{
-margin-left:10px;
-background:black;
-color:white;
-border:none;
-padding:10px 20px;
-border-radius:6px;
-cursor:pointer;
+.busca button {
+    margin-left: 10px;
+    background: black;
+    color: var(--text-color);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    cursor: pointer;
 }
 
-.info{
-margin-top:40px;
-color:#777;
-font-size:14px;
+.info {
+    margin-top: 40px;
+    color: #777;
+    font-size: var(--font-size-base);
 }
 
 /* RESULTADO */
 
-#resultado{
-margin-top:30px;
-font-size:16px;
+#resultado {
+    margin-top: 30px;
+    font-size: var(--font-size-base);
 }
 
 /* FOOTER */
 
-footer{
-position:fixed;
-bottom:0;
-width:100%;
-background:black;
-color:white;
-display:flex;
-justify-content:space-between;
-padding:15px 40px;
-font-size:14px;
+footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background: black;
+    color: var(--text-color);
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 40px;
+    font-size: var(--font-size-base);
 }
-.logo img{
-width: 60px;
-height: 60px;
-object-fit: cover;
-border-radius: 30px;
+
+.logo img {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 30px;
 }
-.logo{
-display: flex;
-align-items: center;
-gap: 10px;
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+body:has(#toggle-contraste:checked) {
+    --bg-color: #121212;
+    --text-color: #ffffff;
+    --link-color: #ffff00;
+
+    /* Invertemos o fundo do header para destacar no modo escuro, ou mantemos se preferir */
+    --header-bg: #000000;
+    --header-text: #00ffcc;
+    /* Uma cor de alto contraste para os links no modo escuro */
+}
+
+/* Se a Fonte Grande estiver marcada, a mágica acontece pelo 'em' */
+body:has(#toggle-fonte:checked) {
+    --font-scale: 1.4;
+    /* Aumenta o tamanho base, o que consequentemente aumenta os 'em' */
 }
