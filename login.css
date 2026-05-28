@@ -196,3 +196,25 @@ body.fonte-daniel-ativa #fonte-daniel + .btn-acessivel {
     border-color: #ffffff;
     font-weight: bold;
 }
+
+
+
+footer {
+  /* Substitui o margin fixo por um cálculo que respeita a escala ou use um valor padrão */
+  margin-top: 390px; 
+  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 15px 40px;
+  
+  /* Pega as mesmas cores que definimos para o topo do site */
+  background: var(--header-bg); 
+  color: var(--header-text);
+  
+  /* De 20px fixo para 1.25em (assim ele cresce junto com o botão de aumentar fonte) */
+  font-size: 1.25em; 
+  
+  /* Suaviza a transição quando os botões forem acionados */
+  transition: all 0.3s ease; 
+}

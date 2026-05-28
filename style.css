@@ -156,15 +156,25 @@ div#cx4{
     box-shadow: 0px 0px 2px 5px black;
 }
 
-footer{
-margin-top: 310px;
-align-items: center;
-background: linear-gradient(90deg,#000,#313131,#000);
-color:white;
-display:flex;
-justify-content:center;
-padding:15px 40px;
-font-size:20px;
+
+footer {
+  /* Substitui o margin fixo por um cálculo que respeita a escala ou use um valor padrão */
+  margin-top: 390px; 
+  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 15px 40px;
+  
+  /* Pega as mesmas cores que definimos para o topo do site */
+  background: var(--header-bg); 
+  color: var(--header-text);
+  
+  /* De 20px fixo para 1.25em (assim ele cresce junto com o botão de aumentar fonte) */
+  font-size: 1.25em; 
+  
+  /* Suaviza a transição quando os botões forem acionados */
+  transition: all 0.3s ease; 
 }
 
 /* ==========================================================
