@@ -1,0 +1,142 @@
+body{
+    font-family: monospace;
+    background-color:  rgb(219, 219, 219);
+}
+
+header{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:15px 40px;
+background: linear-gradient(90deg,#000,#313131,#000);
+color:white;
+}
+
+#logo{
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    font-size: 25px
+}
+
+#links{
+    display: flex;
+    align-items: center;
+    gap: 60px;
+    font-size: 20px;
+}
+
+header img{
+    height: 120px;
+    width: 120px;
+    background-color: white;
+    border-radius: 60px;
+}
+
+header a{
+    text-decoration: none;
+    color: white;
+}
+
+header a:hover{
+    font-size: 23px;
+    transition: 0.5s;
+    font-weight: bold;
+}
+
+#geral1 img{
+    height: 150px;
+    width: 150px;
+}
+
+#cx4 img{
+    height: 150px;
+    width: 180px;
+    margin: -30px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+div#geral1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 100px;
+}
+
+#geral1 a{
+    text-decoration: none;
+    color: black;
+}
+
+#geral1 a:hover{
+    font-size: 15px;
+    transition: 0.3s;
+}
+
+div#texto1{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px;
+    font-size: 20PX;
+}
+
+.p1{
+    font-size: 20px;
+    margin-bottom: -10px;
+    font-weight: bold
+}
+
+div#geral1 div{
+    background: linear-gradient(135deg, rgb(207, 207, 207), white, rgb(207, 207, 207));
+    display: flex;
+    flex-direction: column; /* ISSO faz os itens ficarem um abaixo do outro */
+    align-items: center;    /* Centraliza os itens horizontalmente na coluna */
+    justify-content: center; /* Centraliza verticalmente se houver altura definida */
+    text-align: center;     /* Centraliza o texto dentro dos parágrafos */
+    margin: 30px;
+    padding: 20px;          /* Um pouco de respiro interno */
+    border-radius: 8px;     /* Opcional: deixa os cantos arredondados */
+}
+
+div#cx1{
+    background-color: white;
+    display: flex;
+    align-items: center;
+    margin: 30px;
+    box-shadow: 0px 0px 2px 5px black;
+}
+div#cx2{
+    background-color: white;
+    display: flex;
+    align-items: center;
+    margin: 30px;
+    box-shadow: 0px 0px 2px 5px black;
+}
+div#cx3{
+    background-color: white;
+    display: flex;
+    align-items: center;
+    margin: 30px;
+    box-shadow: 0px 0px 2px 5px black;
+}
+div#cx4{
+    background-color: white;
+    display: flex;
+    align-items: center;
+    margin: 30px;
+    padding: 30px;
+    box-shadow: 0px 0px 2px 5px black;
+}
+
+footer{
+margin-top: 310px;
+align-items: center;
+background: linear-gradient(90deg,#000,#313131,#000);
+color:white;
+display:flex;
+justify-content:center;
+padding:15px 40px;
+font-size:20px;
+}

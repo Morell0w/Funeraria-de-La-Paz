@@ -1,142 +1,307 @@
-body{
-    font-family: monospace;
-    background-color:  rgb(219, 219, 219);
+/* ==========================================================================
+   1. CONFIGURAÇÕES GERAIS E VARIÁVEIS
+   ========================================================================== */
+:root {
+    --cor-primaria: #07090c;      /* Azul-escuro solene (confiança e seriedade) */
+    --cor-secundaria: #2c3e50;    /* Tom ardósia para textos e elementos secundários */
+    --cor-acento: #b39266;        /* Dourado fosco/bronze (dignidade e respeito) */
+    --cor-fundo-claro: #f8f9fa;   /* Off-white para o fundo (suavidade visual) */
+    --cor-texto: #333333;         /* Cinza escuro para excelente leitura */
+    --cor-branco: #ffffff;
+    --fonte-titulos: 'Playfair Display', 'Georgia', serif; /* Fonte elegante e formal */
+    --fonte-corpo: 'Helvetica Neue', Arial, sans-serif;    /* Fonte limpa e moderna */
+    --transicao: all 0.3s ease;
 }
 
-header{
-display:flex;
-justify-content:space-between;
-align-items:center;
-padding:15px 40px;
-background: linear-gradient(90deg,#000,#313131,#000);
-color:white;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-#logo{
+body {
+    font-family: var(--fonte-corpo);
+    background-color: var(--cor-fundo-claro);
+    color: var(--cor-texto);
+    line-height: 1.6;
+}
+
+/* ==========================================================================
+   2. CABEÇALHO E NAVEGAÇÃO (HEADER)
+   ========================================================================== */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 40px;
+  background: var(--cor-primaria); /* Mudado para variável */
+  color: var(--cor-branco);    /* Mudado para variável */
+  transition: all 0.3s ease;
+
+}
+
+#logo {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  /* Em vez de 25px fixo, usamos 'em' para que ele cresça proporcionalmente */
+  font-size: 1.5em; 
+}
+
+#links {
+  display: flex;
+  align-items: center;
+  gap: 60px;
+  /* Em vez de 20px fixo, usamos 'em' */
+  font-size: 1.25em; 
+  text-decoration: none;
+}
+
+header img {
+  height: 120px;
+  width: 120px;
+  background-color: white;
+  border-radius: 60px;
+}
+
+/* ==========================================================================
+   3. SEÇÃO PRINCIPAL (CIMA / INTRODUÇÃO)
+   ========================================================================== */
+main {
+    padding: 40px 5%;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.cima {
     display: flex;
     align-items: center;
-    gap: 15px;
-    font-size: 25px
+    gap: 50px;
+    margin-bottom: 60px;
+    padding: 20px 0;
 }
 
-#links{
-    display: flex;
-    align-items: center;
-    gap: 60px;
-    font-size: 20px;
+.cima .texto {
+    flex: 1;
 }
 
-header img{
-    height: 120px;
-    width: 120px;
-    background-color: white;
-    border-radius: 60px;
+.cima .texto h1 {
+    font-family: var(--fonte-titulos);
+    color: var(--cor-primaria);
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    position: relative;
+    padding-left: 15px;
 }
 
-header a{
-    text-decoration: none;
-    color: white;
+/* Detalhe elegante ao lado do título principal */
+.cima .texto h1::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 10%;
+    height: 80%;
+    width: 4px;
+    background-color: var(--cor-acento);
 }
 
-header a:hover{
-    font-size: 23px;
-    transition: 0.5s;
-    font-weight: bold;
+.cima .texto p {
+    font-size: 1.05rem;
+    margin-bottom: 15px;
+    text-align: justify;
+    color: #555;
 }
 
-#geral1 img{
-    height: 150px;
-    width: 150px;
+.cima .texto p strong {
+    color: var(--cor-primaria);
 }
 
-#cx4 img{
-    height: 150px;
-    width: 180px;
-    margin: -30px;
-    margin-top: 5px;
-    margin-bottom: 5px;
-}
-
-div#geral1{
+.cima .imagem {
+    flex: 1;
     display: flex;
     justify-content: center;
-    align-items: center;
-    gap: 100px;
 }
 
-#geral1 a{
+.cima .imagem img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+/* ==========================================================================
+   4. SEÇÃO DE PLANOS (CARDS)
+   ========================================================================== */
+.planos {
+    background-color: var(--cor-branco);
+    padding: 50px 4px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+    border: 1px solid rgba(0, 0, 0, 0.03);
+}
+
+.planos h2 {
+    font-family: var(--fonte-titulos);
+    color: var(--cor-primaria);
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+/* Container dos 3 planos dispostos em colunas */
+.planos-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    padding: 0 30px;
+}
+
+.plano-card {
+    background-color: var(--cor-fundo-claro);
+    border-radius: 8px;
+    padding: 35px 25px;
+    border-top: 4px solid var(--cor-secundaria);
+    transition: var(--transicao);
+    display: flex;
+    flex-direction: column;
+}
+
+.plano-card h3 {
+    font-family: var(--fonte-titulos);
+    color: var(--cor-primaria);
+    font-size: 1.4rem;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.plano-card ul {
+    list-style: none;
+    margin-bottom: 25px;
+}
+
+.plano-card ul li {
+    font-size: 0.95rem;
+    margin-bottom: 12px;
+    position: relative;
+    padding-left: 20px;
+    color: #555;
+}
+
+/* Ícone customizado discreto antes de cada item da lista */
+.plano-card ul li::before {
+    content: "•";
+    color: var(--cor-acento);
+    font-size: 1.3rem;
+    position: absolute;
+    left: 0;
+    top: -2px;
+}
+
+/* Destaque para o plano central (Plano Família) */
+.plano-card.plano2 {
+    border-top-color: var(--cor-acento);
+    background-color: var(--cor-branco);
+    box-shadow: 0 8px 25px rgba(179, 146, 102, 0.15);
+    transform: scale(1.03);
+}
+
+/* Efeito Hover nos Cards */
+.plano-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+}
+
+.plano-card.plano2:hover {
+    transform: scale(1.04) translateY(-5px);
+}
+
+/* ==========================================================================
+   5. RODAPÉ (FOOTER)
+   ========================================================================== */
+footer {
+    background-color: var(--cor-primaria);
+    color: rgba(255, 255, 255, 0.7);
+    padding: 30px 5%;
+    margin-top: 60px;
+    font-size: 0.9rem;
+    border-top: 3px solid var(--cor-acento);
+}
+
+.rodape-conteudo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.rodape-conteudo a {
+    color: rgba(255, 255, 255, 0.7);
     text-decoration: none;
-    color: black;
+    text-transform: capitalize;
+    transition: var(--transicao);
 }
 
-#geral1 a:hover{
-    font-size: 15px;
-    transition: 0.3s;
+.rodape-conteudo a:hover {
+    color: var(--cor-acento);
 }
 
-div#texto1{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 20px;
-    font-size: 20PX;
+/* ==========================================================================
+   6. RESPONSIVIDADE (MEDIA QUERIES)
+   ========================================================================== */
+
+/* Tablets e Telas Médias */
+@media (max-width: 992px) {
+    .cima {
+        flex-direction: column;
+        text-align: center;
+        gap: 30px;
+    }
+    
+    .cima .texto h1::before {
+        display: none;
+    }
+    
+    .cima .texto h1 {
+        padding-left: 0;
+    }
+
+    .planos-container {
+        grid-template-columns: 1fr; /* Cartões ficam um abaixo do outro */
+        gap: 25px;
+    }
+
+    .plano-card.plano2 {
+        transform: none; /* Remove a escala aumentada no mobile para não quebrar alinhamento */
+    }
+    
+    .plano-card.plano2:hover {
+        transform: translateY(-5px);
+    }
 }
 
-.p1{
-    font-size: 20px;
-    margin-bottom: -10px;
-    font-weight: bold
-}
+/* Celulares */
+@media (max-width: 600px) {
+    header {
+        flex-direction: column;
+        gap: 15px;
+        padding: 15px;
+    }
 
-div#geral1 div{
-    background: linear-gradient(135deg, rgb(207, 207, 207), white, rgb(207, 207, 207));
-    display: flex;
-    flex-direction: column; /* ISSO faz os itens ficarem um abaixo do outro */
-    align-items: center;    /* Centraliza os itens horizontalmente na coluna */
-    justify-content: center; /* Centraliza verticalmente se houver altura definida */
-    text-align: center;     /* Centraliza o texto dentro dos parágrafos */
-    margin: 30px;
-    padding: 20px;          /* Um pouco de respiro interno */
-    border-radius: 8px;     /* Opcional: deixa os cantos arredondados */
-}
+    header .links {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 12px;
+    }
 
-div#cx1{
-    background-color: white;
-    display: flex;
-    align-items: center;
-    margin: 30px;
-    box-shadow: 0px 0px 2px 5px black;
-}
-div#cx2{
-    background-color: white;
-    display: flex;
-    align-items: center;
-    margin: 30px;
-    box-shadow: 0px 0px 2px 5px black;
-}
-div#cx3{
-    background-color: white;
-    display: flex;
-    align-items: center;
-    margin: 30px;
-    box-shadow: 0px 0px 2px 5px black;
-}
-div#cx4{
-    background-color: white;
-    display: flex;
-    align-items: center;
-    margin: 30px;
-    padding: 30px;
-    box-shadow: 0px 0px 2px 5px black;
-}
+    header .links a {
+        font-size: 0.85rem;
+    }
 
-footer{
-margin-top: 310px;
-align-items: center;
-background: linear-gradient(90deg,#000,#313131,#000);
-color:white;
-display:flex;
-justify-content:center;
-padding:15px 40px;
-font-size:20px;
+    .rodape-conteudo {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+    }
 }
