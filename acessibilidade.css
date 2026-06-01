@@ -1,37 +1,118 @@
 :root {
-  /* Cores Padrão */
+  /* Cores Padrão - Alto Contraste WCAG AAA */
   --bg-color: #ffffff;
-  --text-color: #333333;
-  --link-color: #0066cc;
+  --text-color: #000000;
+  --link-color: #0052cc;
+  --link-visited: #662d91;
+  --focus-color: #4d90fe;
   
-  /* Cores do Header (Controle global) */
+  /* Cores do Header */
   --header-bg: linear-gradient(90deg, #000, #313131, #000);
   --header-text: #ffffff;
+  
+  /* Cores de Painéis e Cards - Tema Claro */
+  --painel-bg: #ffffff;
+  --painel-border: #ddd;
+  --painel-text: #000000;
+  --painel-legend: #000000;
+  
+  --card-bg: #ffffff;
+  --card-border: #ddd;
+  --card-text: #000000;
+  --card-shadow: rgba(0, 0, 0, 0.1);
+  
+  --btn-bg: #ffffff;
+  --btn-text: #000000;
+  --btn-border: #000000;
+  --btn-hover-bg: #f0f0f0;
+  
+  --checkbox-bg: #ffffff;
+  --checkbox-border: #000000;
+  --checkbox-text: #ffffff;
+  
+  --input-bg: #ffffff;
+  --input-text: #000000;
+  --input-border: #000000;
+  
+  --fieldset-border: #ccc;
+  --legend-text: #000000;
+  --label-text: #000000;
+  
+  --geral1-bg: #ffffff;
+  --geral1-border: #000000;
+  --geral1-text: #000000;
+  
+  --geral2-bg: #f8f9fa;
+  --geral2-text: #000000;
+  --geral2-card-bg: linear-gradient(135deg, rgb(207, 207, 207), white, rgb(207, 207, 207));
+  --geral2-text-color: #000000;
+  
+  --cx-box-bg: #ffffff;
+  --cx-box-border: #000000;
+  --cx-box-text: #000000;
   
   /* Tipografia Padrão */
   --font-size-base: 16px;
   --font-scale: 1;
+  
+  /* Espaçamento e Acessibilidade */
+  --focus-outline: 3px solid var(--focus-color);
+  --focus-offset: 2px;
 }
 
 /* ==========================================================
-   ESTILOS GERAIS E ESTRUTURA
+   ESTILOS GERAIS E ESTRUTURA - WCAG AAA
    ========================================================== */
 
 body {
   background-color: var(--bg-color);
   color: var(--text-color);
-  /* Todo o site herda a escala base baseada no REM ou EM */
   font-size: calc(var(--font-size-base) * var(--font-scale));
-  transition: all 0.3s ease;
-  margin: 0; /* Remove margens padrão do navegador */
+  transition: background-color 0.3s ease, color 0.3s ease;
+  margin: 0;
+  line-height: 1.6;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+/* Headings - Melhores escala e contraste */
+h1, h2, h3, h4, h5, h6 {
+  color: var(--text-color);
+  font-weight: 600;
+  line-height: 1.2;
+  margin-top: 1.5em;
+  margin-bottom: 0.5em;
+}
+
+h1 { font-size: 2em; }
+h2 { font-size: 1.75em; }
+h3 { font-size: 1.5em; }
+h4 { font-size: 1.25em; }
+h5 { font-size: 1.1em; }
+h6 { font-size: 1em; }
+
+/* Parágrafos com melhor legibilidade */
+p {
+  margin: 1em 0;
+  line-height: 1.6;
+}
+
+/* Lista com melhor espaçamento */
+ul, ol {
+  margin: 1em 0;
+  padding-left: 2em;
+  line-height: 1.8;
+}
+
+li {
+  margin-bottom: 0.5em;
 }
 
 /* Centralização moderna usando fit-content */
 .geral1 {
-  background-color: black;
-  border: 5px solid white; 
+  background-color: var(--geral1-bg);
+  border: 5px solid var(--geral1-border); 
   border-radius: 8px;
-  color: #ffffff;
+  color: var(--geral1-text);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -43,28 +124,49 @@ body {
   padding: 20px;      
 }
 
+.painel-acessibilidade {
+  background-color: var(--painel-bg);
+  border: 2px solid var(--painel-border);
+  border-radius: 12px;
+  padding: 30px;
+  max-width: 760px;
+  width: 100%;
+  text-align: left;
+}
+
+.painel-acessibilidade h2 {
+  color: var(--painel-text);
+}
+
+.painel-acessibilidade legend {
+  color: var(--painel-legend);
+}
+
+.painel-acessibilidade label {
+  color: var(--painel-text);
+}
+
 /* Seção de Conteúdo Geral 2 */
 div#geral2 {
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 100px;
+  background-color: var(--geral2-bg);
 }
 
-/* ALTERADO: Força os links do geral2 a serem estritamente pretos, ignorando o modo escuro */
 div#geral2 a {
   text-decoration: none;
-  color: #000000 !important; 
+  color: var(--geral2-text) !important; 
   transition: transform 0.3s ease;
 }
 
 div#geral2 a:hover {
-  transform: scale(1.05); /* Zoom suave sem tremer o layout */
+  transform: scale(1.05);
 }
 
-/* ALTERADO: Força todo o texto dentro dos blocos internos a ser estritamente preto */
 div#geral2 div {
-  background: linear-gradient(135deg, rgb(207, 207, 207), white, rgb(207, 207, 207));
+  background: var(--geral2-card-bg);
   display: flex;
   flex-direction: column; 
   align-items: center;    
@@ -73,7 +175,7 @@ div#geral2 div {
   margin: 30px;
   padding: 20px;          
   border-radius: 8px;     
-  color: #000000 !important; /* Texto interno protegido contra o modo escuro */
+  color: var(--geral2-text-color) !important;
 }
 
 /* Elementos Internos do Geral 2 */
@@ -90,22 +192,21 @@ div#texto2 {
   font-size: 1.25em; 
 }
 
-/* ALTERADO: Força a classe .p1 a ser preta em qualquer situação */
 .p1 {
   font-size: 1.25em; 
   margin-bottom: -10px;
   font-weight: bold;
-  color: #000000 !important; 
+  color: var(--geral2-text-color) !important; 
 }
 
-/* ALTERADO: Protege as caixas unificadas mantendo o fundo branco e o texto preto sempre */
 .cx-box {
-  background-color: white !important;
+  background-color: var(--cx-box-bg) !important;
   display: flex;
   align-items: center;
   margin: 30px;
-  box-shadow: 0px 0px 2px 5px black;
-  color: #000000 !important; 
+  box-shadow: 0px 0px 2px 5px var(--cx-box-border);
+  color: var(--cx-box-text) !important; 
+  border: 2px solid var(--cx-box-border);
 }
 
 /* Ajuste específico para a imagem que era do cx8 */
@@ -122,77 +223,24 @@ div#texto2 {
 }
 
 /* ==========================================================
-   HEADER E FOOTER
+   HEADER E FOOTER - DEIXAR PARA CSS ESPECÍFICAS DAS PÁGINAS
    ========================================================== */
-
-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 15px 40px;
-  background: var(--header-bg); 
-  color: var(--header-text);    
-  transition: all 0.3s ease;
-}
-
-#logo {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-  font-size: 1.56em; 
-}
-
-header img {
-  height: 120px;
-  width: 120px;
-  background-color: white;
-  border-radius: 60px;
-}
-
-#links {
-  display: flex;
-  align-items: center;
-  gap: 60px;
-  font-size: 1.25em; 
-}
-
-header a {
-  text-decoration: none;
-  color: var(--header-text); 
-  transition: transform 0.3s ease;
-}
-
-header a:hover {
-  transform: scale(1.1); 
-  font-weight: bold;
-}
-
-footer {
-  margin-top: 390px;  
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 15px 40px;
-  background: var(--header-bg); 
-  color: var(--header-text);
-  font-size: 1.25em;  
-  transition: all 0.3s ease; 
-}
 
 /* ==========================================================
-   BOTÕES E ACESSIBILIDADE VISUAL
+   BOTÕES E ACESSIBILIDADE VISUAL - WCAG AAA
    ========================================================== */
 
+/* Checkbox: Contraste alto branco/preto = 21:1 (máximo contraste) */
 .checkbox-acessivel {
   -webkit-appearance: none;
   appearance: none;
-  width: 18px;
-  height: 18px;
-  background-color: #000000;
-  border: 2px solid #ffffff;
-  border-radius: 4px; 
+  width: 20px;
+  height: 20px;
+  background-color: var(--checkbox-bg);
+  border: 2px solid var(--checkbox-border);
+  border-radius: 3px;
   display: inline-block;
-  vertical-align: middle;
+  vertical-align: -4px;
   margin-right: 8px;
   cursor: pointer;
   position: relative;
@@ -200,61 +248,270 @@ footer {
 }
 
 .checkbox-acessivel:hover {
-  border-color: rgb(190, 245, 255); 
+  border-color: var(--checkbox-border);
+  box-shadow: 0 0 0 3px rgba(0, 82, 204, 0.1);
+}
+
+.checkbox-acessivel:focus-visible {
+  outline: var(--focus-outline);
+  outline-offset: var(--focus-offset);
 }
 
 .checkbox-acessivel:checked {
-  background-color: #ffffff; 
+  background-color: var(--checkbox-border);
+  border-color: var(--checkbox-border);
 }
 
 .checkbox-acessivel:checked::after {
-  content: '';
+  content: '✓';
   position: absolute;
-  left: 5px;
-  top: 1px;
-  width: 5px;
-  height: 10px;
-  border: solid black;
-  border-width: 0 2px 2px 0;
-  transform: rotate(45deg);
+  left: 2px;
+  top: -2px;
+  color: var(--checkbox-text);
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 1;
+}
+
+/* ========================================================
+   ACESSIBILIDADE WCAG AAA - FOCO E INTERATIVIDADE
+   ======================================================== */
+
+/* ==========================================================
+   FORMULÁRIOS E CAMPOS - WCAG AAA
+   ========================================================== */
+
+label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  color: var(--label-text);
+}
+
+fieldset {
+  border: 1px solid var(--fieldset-border);
+  border-radius: 4px;
+  padding: 16px;
+  margin-bottom: 20px;
+}
+
+legend {
+  padding: 0 8px;
+  font-weight: 600;
+  font-size: 1.1em;
+  color: var(--legend-text);
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+textarea,
+select {
+  padding: 10px;
+  border: 2px solid var(--input-border);
+  border-radius: 4px;
+  font-size: 1em;
+  background-color: var(--input-bg);
+  color: var(--input-text);
+}
+
+input[type="text"]:focus-visible,
+input[type="email"]:focus-visible,
+input[type="password"]:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: var(--focus-outline);
+  outline-offset: var(--focus-offset);
+  border-color: #0052cc;
+}
+
+body.modo-escuro-ativo input[type="text"],
+body.modo-escuro-ativo input[type="email"],
+body.modo-escuro-ativo input[type="password"],
+body.modo-escuro-ativo textarea,
+body.modo-escuro-ativo select {
+  background-color: #1a1a1a;
+  color: #ffffff;
+  border-color: #ffffff;
+}
+
+/* Foco visível em TODAS as interações - padrão WCAG */
+:focus-visible {
+  outline: var(--focus-outline);
+  outline-offset: var(--focus-offset);
+}
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: var(--focus-outline);
+  outline-offset: var(--focus-offset);
+}
+
+/* ========================================================
+   HEADER NAVIGATION - Sempre branco
+   ======================================================== */
+
+header a,
+header a:visited,
+header a:link {
+  color: white !important;
+  text-decoration: none;
+}
+
+header a:hover {
+  opacity: 0.8;
+}
+
+header a:focus-visible {
+  outline: var(--focus-outline);
+  outline-offset: var(--focus-offset);
+}
+
+/* Foco adequado: não forçar cores de links do corpo do texto */
+main a:focus-visible,
+.content a:focus-visible {
+  outline: var(--focus-outline);
+  outline-offset: var(--focus-offset);
 }
 
 .btn-acessivel {
   display: inline-block;
-  padding: 10px 20px;          
-  background-color: transparent; 
-  color: #ffffff;              
-  border: 2px solid transparent; 
-  border-radius: 20px;         
+  padding: 12px 20px;
+  background-color: var(--btn-bg);
+  color: var(--btn-text);
+  border: 2px solid var(--btn-border);
+  border-radius: 4px;
   cursor: pointer;
-  transition: all 0.2s ease;   
+  transition: all 0.2s ease;
+  font-size: 1em;
+  font-weight: 500;
+  min-width: 44px;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .btn-acessivel:hover {
-  border-color: #ffffff;       
-  background-color: rgba(255, 255, 255, 0.1); 
+  background-color: var(--btn-hover-bg);
+  border-color: var(--btn-border);
+}
+
+.btn-acessivel:focus-visible {
+  outline: var(--focus-outline);
+  outline-offset: var(--focus-offset);
+}
+
+.btn-acessivel:active {
+  background-color: var(--btn-hover-bg);
 }
 
 .grupo-fontes {
-  margin-top: 20px;
   display: flex;
-  gap: 15px;
+  gap: 12px;
   align-items: center;
   justify-content: center;
-  flex-wrap: wrap; 
+  flex-wrap: wrap;
+  margin-top: 16px;
 }
 
 /* ==========================================================
    MÁGICA DA ACESSIBILIDADE GLOBAL (COORDENADA POR CLASSES JS)
    ========================================================== */
 
-/* 1. MODO ESCURO / ALTO CONTRASTE */
+/* ==========================================================
+   MODO ESCURO COM ACESSIBILIDADE - Contraste WCAG AAA
+   ========================================================== */
+
+/* Quando modo escuro está ativo */
 body.modo-escuro-ativo {
-  --bg-color: #121212;
+  --bg-color: #000000;
   --text-color: #ffffff;
-  --link-color: #ffff00;
-  --header-bg: #000000; 
-  --header-text: rgb(190, 245, 255);
+  --link-color: #79c0ff;
+  --link-visited: #d2a8ff;
+  --header-bg: #000000;
+  --header-text: #ffffff;
+  
+  /* Cores de Painéis e Cards - Tema Escuro */
+  --painel-bg: #1a1a1a;
+  --painel-border: #444;
+  --painel-text: #ffffff;
+  --painel-legend: #ffffff;
+  
+  --card-bg: #1a1a1a;
+  --card-border: #444;
+  --card-text: #ffffff;
+  --card-shadow: rgba(0, 0, 0, 0.3);
+  
+  --btn-bg: #2a2a2a;
+  --btn-text: #ffffff;
+  --btn-border: #ffffff;
+  --btn-hover-bg: #3a3a3a;
+  
+  --checkbox-bg: #000000;
+  --checkbox-border: #ffffff;
+  --checkbox-text: #000000;
+  
+  --input-bg: #2a2a2a;
+  --input-text: #ffffff;
+  --input-border: #ffffff;
+  
+  --fieldset-border: #444;
+  --legend-text: #ffffff;
+  --label-text: #ffffff;
+  
+  --geral1-bg: #1a1a1a;
+  --geral1-border: #ffffff;
+  --geral1-text: #ffffff;
+  
+  --geral2-bg: #0a0a0a;
+  --geral2-text: #ffffff;
+  --geral2-card-bg: linear-gradient(135deg, #2a2a2a, #1a1a1a, #2a2a2a);
+  --geral2-text-color: #ffffff;
+  
+  --cx-box-bg: #2a2a2a;
+  --cx-box-border: #ffffff;
+  --cx-box-text: #ffffff;
+}
+
+body.modo-escuro-ativo {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
+
+/* Variáveis já controlam checkboxes via --checkbox-bg etc */
+
+/* Variáveis já controlam botões e geral2 */
+
+/* Formulários em modo escuro */
+body.modo-escuro-ativo fieldset {
+  border-color: #ffffff;
+}
+
+body.modo-escuro-ativo legend {
+  color: #ffffff;
+}
+
+body.modo-escuro-ativo input[type="text"],
+body.modo-escuro-ativo input[type="email"],
+body.modo-escuro-ativo input[type="password"],
+body.modo-escuro-ativo textarea,
+body.modo-escuro-ativo select {
+  background-color: #1a1a1a;
+  color: #ffffff;
+  border-color: #ffffff;
+}
+
+body.modo-escuro-ativo input[type="text"]::placeholder,
+body.modo-escuro-ativo input[type="email"]::placeholder,
+body.modo-escuro-ativo input[type="password"]::placeholder,
+body.modo-escuro-ativo textarea::placeholder {
+  color: #b0b0b0;
 }
 
 /* 2. NÍVEIS DE FONTE */
@@ -263,14 +520,117 @@ body.fonte-media-ativa  { --font-scale: 1.25; }
 body.fonte-grande-ativa { --font-scale: 1.5; }
 body.fonte-daniel-ativa { --font-scale: 1.75; }
 
-/* MANTER BOTÕES ATIVOS VISUALMENTE */
-body.modo-escuro-ativo #toggle-contraste + .btn-acessivel,
-body.fonte-padrao-ativa #fonte-padrao + .btn-acessivel,
-body.fonte-media-ativa #fonte-media + .btn-acessivel,
-body.fonte-grande-ativa #fonte-grande + .btn-acessivel,
-body.fonte-daniel-ativa #fonte-daniel + .btn-acessivel {
+/* MANTER BOTÕES ATIVOS VISUALMENTE - Acessibilidade */
+/* Tema Claro - Botões Ativos */
+body.fonte-padrao-ativa:not(.modo-escuro-ativo) #fonte-padrao + .btn-acessivel,
+body.fonte-media-ativa:not(.modo-escuro-ativo) #fonte-media + .btn-acessivel,
+body.fonte-grande-ativa:not(.modo-escuro-ativo) #fonte-grande + .btn-acessivel,
+body.fonte-daniel-ativa:not(.modo-escuro-ativo) #fonte-daniel + .btn-acessivel {
   background-color: #ffffff;
   color: #000000;
+  border-color: #000000;
+  font-weight: bold;
+  box-shadow: 0 0 0 2px #000000;
+}
+
+/* Tema Escuro - Botões Ativos */
+body.modo-escuro-ativo #toggle-contraste + .btn-acessivel,
+body.modo-escuro-ativo.fonte-padrao-ativa #fonte-padrao + .btn-acessivel,
+body.modo-escuro-ativo.fonte-media-ativa #fonte-media + .btn-acessivel,
+body.modo-escuro-ativo.fonte-grande-ativa #fonte-grande + .btn-acessivel,
+body.modo-escuro-ativo.fonte-daniel-ativa #fonte-daniel + .btn-acessivel {
+  background-color: #000000;
+  color: #ffffff;
   border-color: #ffffff;
   font-weight: bold;
+  box-shadow: 0 0 0 2px #ffffff;
+}
+
+/* ========================================================
+   ACESSIBILIDADE FINAL - MELHORE DE USABILIDADE
+   ======================================================== */
+
+/* Skip to content - Navegação por teclado */
+.skip-to-content {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: #000000;
+  color: #ffffff;
+  padding: 8px 16px;
+  z-index: 100;
+}
+
+.skip-to-content:focus {
+  top: 0;
+}
+
+/* Melhor visibilidade do foco para qualquer elemento */
+*:focus-visible {
+  outline: var(--focus-outline);
+  outline-offset: var(--focus-offset);
+}
+
+/* Remover padrão de foco do navegador para evitar conflitos */
+*:focus {
+  outline: none;
+}
+
+/* Garantir espaçamento adequado entre elementos interativos (touch target 44x44px) */
+button, 
+a, 
+input[type="button"], 
+input[type="submit"],
+.btn-acessivel {
+  min-width: 44px;
+  min-height: 44px;
+}
+
+/* Tabela com células bem definidas */
+table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 1.5em 0;
+}
+
+table th,
+table td {
+  border: 1px solid var(--text-color);
+  padding: 12px;
+  text-align: left;
+}
+
+table th {
+  background-color: #f5f5f5;
+  font-weight: 600;
+}
+
+body.modo-escuro-ativo table th {
+  background-color: #2a2a2a;
+}
+
+/* Código com contraste adequado */
+code,
+pre {
+  background-color: #f5f5f5;
+  border: 1px solid #ddd;
+  border-radius: 3px;
+  padding: 2px 6px;
+  font-family: "Courier New", monospace;
+  color: var(--text-color);
+}
+
+body.modo-escuro-ativo code,
+body.modo-escuro-ativo pre {
+  background-color: #2a2a2a;
+  border-color: #444;
+}
+
+/* Blocos de citação */
+blockquote {
+  margin: 1.5em 0;
+  padding-left: 20px;
+  border-left: 4px solid var(--link-color);
+  font-style: italic;
+  color: var(--text-color);
 }

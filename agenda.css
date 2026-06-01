@@ -13,7 +13,6 @@
   --font-scale: 1;
 }
 
-
 * {
     margin: 0;
     padding: 0;
@@ -22,27 +21,8 @@
 }
 
 body {
-    background-color: #f8f9fa;
-    color: #333;
-   
-}
-
-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px 40px;
-    text-decoration: none;
-    background: linear-gradient(90deg, #000, #444, #000);
-    color: white;
-    height: 57px;
-}
-
-header a {
-    text-decoration: none;
-    color: white;
-    gap: 15px;
-    padding-left: 15px;
+    background-color: var(--bg-color);
+    color: var(--text-color);
 }
 
 .main-header {
@@ -57,11 +37,12 @@ header a {
 
 .title-group h1 {
     font-size: 24px;
-    color: #1a1a1b;
+    color: var(--text-color);
 }
 
 .title-group p {
-    color: #6c757d;
+    color: var(--text-color);
+    opacity: 0.7;
     font-size: 14px;
 }
 
@@ -76,11 +57,11 @@ header a {
 }
 
 .view-toggle {
-    background: white;
+    background: var(--card-bg, white);
     display: inline-flex;
     padding: 5px;
     border-radius: 8px;
-    border: 1px solid #dee2e6;
+    border: 1px solid var(--card-border, #dee2e6);
     margin-bottom: 25px;
     margin-left: 15px;
       margin-right: 15px;
@@ -193,18 +174,7 @@ header a {
 }
 
 
-footer {
-  /* Substitui o margin fixo por um cálculo que respeita a escala ou use um valor padrão */
-  margin-top: 390px; 
-  
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 15px 40px;
-  
-  /* Pega as mesmas cores que definimos para o topo do site */
-  background: var(--header-bg); 
-  color: var(--header-text);
+
   
   /* De 20px fixo para 1.25em (assim ele cresce junto com o botão de aumentar fonte) */
   font-size: 1.25em; 
@@ -236,11 +206,55 @@ body:has(#toggle-contraste:checked) {
     --header-text: rgb(190, 245, 255);
 }
 
-/* 2. NÍVEIS DE FONTE */
+body.modo-escuro-ativo {
+    --bg-color: #000000;
+    --text-color: #ffffff;
+    --card-bg: #1a1a1a;
+    --card-border: #444;
+    --input-bg: #2a2a2a;
+    --input-border: #ffffff;
+}
 
-/* Nível Padrão (Não muda nada, mantém o padrão 1) */
-body:has(#fonte-padrao:checked) {
-    --font-scale: 1;
+body.modo-escuro-ativo h1,
+body.modo-escuro-ativo h2,
+body.modo-escuro-ativo h3,
+body.modo-escuro-ativo h4,
+body.modo-escuro-ativo h5,
+body.modo-escuro-ativo h6 {
+    color: #ffffff;
+}
+
+body.modo-escuro-ativo .title-group p,
+body.modo-escuro-ativo p {
+    color: #e0e0e0;
+}
+
+body.modo-escuro-ativo .card {
+    background-color: #1a1a1a;
+    border-color: #444;
+    color: #ffffff;
+}
+
+body.modo-escuro-ativo .card label {
+    color: #e0e0e0;
+}
+
+body.modo-escuro-ativo .view-toggle {
+    background: #2a2a2a;
+    border-color: #444;
+}
+
+body.modo-escuro-ativo .toggle-btn {
+    color: #e0e0e0;
+}
+
+body.modo-escuro-ativo .toggle-btn[aria-pressed="true"] {
+    background-color: #007bff;
+    color: white;
+}
+
+body.modo-escuro-ativo .btn-primary {
+    background-color: #0f8aff;
 }
 
 /* Nível Médio (Aumento de 25%) */
@@ -300,13 +314,25 @@ body.fonte-daniel-ativa { --font-scale: 1.75; }
 
 
 /* MANTENDO O VISUAL DOS BOTÕES ATIVOS NA TELA DE CONFIGURAÇÃO */
-body.modo-escuro-ativo #toggle-contraste + .btn-acessivel,
-body.fonte-padrao-ativa #fonte-padrao + .btn-acessivel,
-body.fonte-media-ativa #fonte-media + .btn-acessivel,
-body.fonte-grande-ativa #fonte-grande + .btn-acessivel,
-body.fonte-daniel-ativa #fonte-daniel + .btn-acessivel {
+/* Tema Claro - Botões Ativos */
+body.fonte-padrao-ativa:not(.modo-escuro-ativo) #fonte-padrao + .btn-acessivel,
+body.fonte-media-ativa:not(.modo-escuro-ativo) #fonte-media + .btn-acessivel,
+body.fonte-grande-ativa:not(.modo-escuro-ativo) #fonte-grande + .btn-acessivel,
+body.fonte-daniel-ativa:not(.modo-escuro-ativo) #fonte-daniel + .btn-acessivel {
     background-color: #ffffff;
     color: #000000;
+    border-color: #000000;
+    font-weight: bold;
+}
+
+/* Tema Escuro - Botões Ativos */
+body.modo-escuro-ativo #toggle-contraste + .btn-acessivel,
+body.modo-escuro-ativo.fonte-padrao-ativa #fonte-padrao + .btn-acessivel,
+body.modo-escuro-ativo.fonte-media-ativa #fonte-media + .btn-acessivel,
+body.modo-escuro-ativo.fonte-grande-ativa #fonte-grande + .btn-acessivel,
+body.modo-escuro-ativo.fonte-daniel-ativa #fonte-daniel + .btn-acessivel {
+    background-color: #000000;
+    color: #ffffff;
     border-color: #ffffff;
     font-weight: bold;
 }

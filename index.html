@@ -1,32 +1,37 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WCYLM</title>
+    <meta name="description" content="Funerária de La Paz - Serviços funerários com dignidade e respeito.">
+    <link href="funcionários.css" rel="stylesheet">
     <link href="style.css" rel="stylesheet">
+    <link href="acessibilidade.css" rel="stylesheet">
+    <link href="header-footer.css" rel="stylesheet">
     <script src="acessibilidade.js"></script>
+    <title>Funerária de La Paz - Serviços Funerários e Dignidade</title>
 </head>
 
 <body>
-    <header>
-        <div class="logo" id="logo">
-            <img src="">
-
+    <header id="head1">
+        <div id="logo">
+            <img src="ccd43164-5520-470d-b7e7-92dbdd34407a.png" alt="Logo da Funerária de La Paz - Pomba">
+            <h1>Funerária de La Paz</h1>
         </div>
-        <div class="links" id="links">
-            <a href="#">Assistencia Social</a>
-            <a href="#">Agenda</a>
+        <nav id="links1">
+            <a href="index.html">Inicio</a>
+            <a href="#">Assistência Social</a>
+            <a href="agenda.html">Agenda</a>
             <a href="acessibilidade.html">Acessibilidade</a>
             <a href="login.html">Login</a>
-            <a href="funcionarios.html">Funcionarios</a>
-        </div>
-
+            <a href="funcionarios.html" aria-current="page">Funcionários</a>
+        </nav>
     </header>
     <main>
-        <div class="cima">
+        <section class="cima">
             <div class="texto">
+                <h2>Bem-vindo à Funerária de La Paz</h2>
                 <p>A Funerária De La Paz é sinônimo de respeito, acolhimento e dignidade em um dos momentos mais
                     delicados da vida. Com uma equipe altamente preparada e sensível às necessidades de cada família,
                     oferecemos um atendimento humano e personalizado, garantindo que cada detalhe seja conduzido com
@@ -41,51 +46,47 @@
                     Funerária De La Paz - cuidado, respeito e serenidade em todos os momentos.</p>
             </div>
             <div class="imagem">
-                <img src="Frente funerária.png">
-
+                <img src="Frente funerária.png" alt="Fachada da Funerária de La Paz">
             </div>
-        </div>
+        </section>
         <section class="planos">
-        <div class="planos-container">
-            <div class="plano1">
-                <h3>Plano Individual</h3>
-                <ul>
-                    <li>Atendimento 24 horas em todo território nacional</li>
-                    <li>Assessoria completa em documentação</li>
-                    <li>Cerimônia personalizada</li>
-                    <li>Traslado local incluso</li>
-                    <li>Véu, coroa de flores e kit higiene</li>
-                </ul>
+            <h2>Nossos Planos</h2>
+            <div class="planos-container">
+                <article class="plano1">
+                    <h3>Plano Individual</h3>
+                    <ul>
+                        <li>Atendimento 24 horas em todo território nacional</li>
+                        <li>Assessoria completa em documentação</li>
+                        <li>Cerimônia personalizada</li>
+                        <li>Traslado local incluso</li>
+                        <li>Véu, coroa de flores e kit higiene</li>
+                    </ul>
+                </article>
+                <article class="plano2">
+                    <h3>Plano Família</h3>
+                    <ul>
+                        <li>Cobertura para toda família (até 6 dependentes)</li>
+                        <li>Atendimento prioritário 24/7</li>
+                        <li>Suporte psicológico em momentos de luto</li>
+                        <li>Sala de velório premium</li>
+                        <li>Coffee break para visitantes</li>
+                    </ul>
+                </article>
+                <article class="plano3">
+                    <h3>Plano Pet</h3>
+                    <ul>
+                        <li>Cremação individual com certificado</li>
+                        <li>Urna personalizada inclusa</li>
+                        <li>Coleta em domicílio 24 horas</li>
+                        <li>Memorial online do seu pet</li>
+                        <li>Atendimento com carinho e respeito</li>
+                    </ul>
+                </article>
             </div>
-            <div class="plano2">
-                <h3>Plano Família</h3>
-                <ul>
-                    <li>Cobertura para toda família (até 6 dependentes)</li>
-                    <li>Atendimento prioritário 24/7</li>
-                    <li>Suporte psicológico em momentos de luto</li>
-                    <li>Sala de velório premium</li>
-                    <li>Coffee break para visitantes</li>
-                </ul>
-            </div>
-            <div class="plano3">
-                <h3>Plano Pet</h3>
-                <ul>
-                    <li>Cremação individual com certificado</li>
-                    <li>Urna personalizada inclusa</li>
-                    <li>Coleta em domicílio 24 horas</li>
-                    <li>Memorial online do seu pet</li>
-                    <li>Atendimento com carinho e respeito</li>
-                </ul>
-            </div>
-        </div>
-        </div>
         </section>
     </main>
     <footer>
-        <div class="aspas">
-            <span>© 2026 Funerária De La Paz. Todos os direitos reservados.</span>
-            <a href="#">ajuda</a>
-        </div>
+        <p>&copy;2026 Funerária de La Paz, Todos os direitos reservados</p>
     </footer>
 </body>
 

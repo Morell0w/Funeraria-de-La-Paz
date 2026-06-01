@@ -3,71 +3,73 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Funerária de La Paz</title>
-
-      <link href="acessibilidade.css" rel="stylesheet">
-         <script src="acessibilidade.js"></script>
-
+    <meta name="description" content="Login e Cadastro - Funerária de La Paz">
+    <link href="funcionários.css" rel="stylesheet">
+    <link href="acessibilidade.css" rel="stylesheet">
+    <link href="login.css" rel="stylesheet">
+    <link href="header-footer.css" rel="stylesheet">
+    <script src="acessibilidade.js"></script>
+    <title>Login / Cadastro - Funerária de La Paz</title>
 </head>
 <body>
-      <header>
-        <div class="logo">
-            <img src="ccd43164-5520-470d-b7e7-92dbdd34407a.png">
+    <header id="head1">
+        <div id="logo">
+            <img src="ccd43164-5520-470d-b7e7-92dbdd34407a.png" alt="Logo da Funerária de La Paz - Pomba">
+            <h1>Funerária de La Paz</h1>
         </div>
-        <h3>Funerária de La Paz</h3>
-        <div class="links">
-   <a href="#">Assistencia Social</a>
-            <a href="#">Agenda</a>
+        <nav id="links1">
+            <a href="index.html">Inicio</a>
+            <a href="#">Assistência Social</a>
+            <a href="agenda.html">Agenda</a>
             <a href="acessibilidade.html">Acessibilidade</a>
-            <a href="login.html">Login</a>
-            <a href="funcionarios.html">Funcionarios</a>
-        </div>
-
+            <a href="login.html" aria-current="page">Login</a>
+            <a href="funcionarios.html">Funcionários</a>
+        </nav>
     </header>
     <main>
-<div class="container">
-    <div id="loginForm">
-        <h2>Entrar</h2>
-        <form onsubmit="realizarLogin(event)">
-            <div class="input-group">
-                <label for="loginEmail">E-mail</label>
-                <input type="email" id="loginEmail" required>
+        <div class="container">
+            <div id="loginForm">
+                <h2>Entrar</h2>
+                <form onsubmit="realizarLogin(event)">
+                    <div class="input-group">
+                        <label for="loginEmail">E-mail <span aria-label="obrigatório">*</span></label>
+                        <input type="email" id="loginEmail" required aria-required="true">
+                    </div>
+                    <div class="input-group">
+                        <label for="loginSenha">Senha <span aria-label="obrigatório">*</span></label>
+                        <input type="password" id="loginSenha" required aria-required="true">
+                    </div>
+                    <button type="submit">Acessar</button>
+                </form>
+                <div class="switch-form">
+                    Não tem uma conta? <a href="#cadastroForm">Cadastre-se</a>
+                </div>
             </div>
-            <div class="input-group">
-                <label for="loginSenha">Senha</label>
-                <input type="password" id="loginSenha" required>
+            <div id="cadastroForm" class="hidden">
+                <h2>Cadastrar</h2>
+                <form onsubmit="realizarCadastro(event)">
+                    <div class="input-group">
+                        <label for="cadNome">Nome Completo <span aria-label="obrigatório">*</span></label>
+                        <input type="text" id="cadNome" required aria-required="true">
+                    </div>
+                    <div class="input-group">
+                        <label for="cadEmail">E-mail <span aria-label="obrigatório">*</span></label>
+                        <input type="email" id="cadEmail" required aria-required="true">
+                    </div>
+                    <div class="input-group">
+                        <label for="cadSenha">Senha <span aria-label="obrigatório">*</span></label>
+                        <input type="password" id="cadSenha" required aria-required="true">
+                    </div>
+                    <button type="submit">Criar Conta</button>
+                </form>
+                <div class="switch-form">
+                    Já tem uma conta? <a href="#loginForm">Faça Login</a>
+                </div>
             </div>
-            <button type="submit">Acessar</button>
-        </form>
-        <div class="switch-form">
-            Não tem uma conta? <a href="#">Cadastre-se</a>
         </div>
-    </div>
-    <div id="cadastroForm" class="hidden">
-        <h2>Cadastrar</h2>
-        <form onsubmit="realizarCadastro(event)">
-            <div class="input-group">
-                <label for="cadNome">Nome Completo</label>
-                <input type="text" id="cadNome" required>
-            </div>
-            <div class="input-group">
-                <label for="cadEmail">E-mail</label>
-                <input type="email" id="cadEmail" required>
-            </div>
-            <div class="input-group">
-                <label for="cadSenha">Senha</label>
-                <input type="password" id="cadSenha" required>
-            </div>
-            <button type="submit">Criar Conta</button>
-        </form>
-        <div class="switch-form">
-            Já tem uma conta? <a href="#">Faça Login</a>
-        </div>
-    </div>
-</div>
     </main>
     <footer>
-
+        <p>&copy;2026 Funerária de La Paz, Todos os direitos reservados</p>
     </footer>
 </body>
 </html>

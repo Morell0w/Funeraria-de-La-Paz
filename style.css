@@ -13,6 +13,12 @@
     --transicao: all 0.3s ease;
 }
 
+body.modo-escuro-ativo {
+    --cor-fundo-claro: #000000;
+    --cor-texto: #ffffff;
+    --cor-primaria: #ffffff;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -24,45 +30,6 @@ body {
     background-color: var(--cor-fundo-claro);
     color: var(--cor-texto);
     line-height: 1.6;
-}
-
-/* ==========================================================================
-   2. CABEÇALHO E NAVEGAÇÃO (HEADER)
-   ========================================================================== */
-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 15px 40px;
-  background: var(--cor-primaria); /* Mudado para variável */
-  color: var(--cor-branco);    /* Mudado para variável */
-  transition: all 0.3s ease;
-      text-decoration: none;
-
-}
-
-#logo {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-  /* Em vez de 25px fixo, usamos 'em' para que ele cresça proporcionalmente */
-  font-size: 1.5em; 
-}
-
-#links {
-  display: flex;
-  align-items: center;
-  gap: 60px;
-  /* Em vez de 20px fixo, usamos 'em' */
-  font-size: 1.25em; 
-  text-decoration: none;
-}
-
-header img {
-  height: 120px;
-  width: 120px;
-  background-color: white;
-  border-radius: 60px;
 }
 
 /* ==========================================================================
@@ -110,7 +77,7 @@ main {
     font-size: 1.05rem;
     margin-bottom: 15px;
     text-align: justify;
-    color: #555;
+    color: var(--cor-texto, #555);
 }
 
 .cima .texto p strong {
@@ -129,6 +96,43 @@ main {
     border-radius: 8px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
     border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+/* DARK MODE OVERRIDES */
+body.modo-escuro-ativo .cima .texto h1 {
+    color: #ffffff;
+}
+
+body.modo-escuro-ativo .cima .texto p {
+    color: #e0e0e0;
+}
+
+body.modo-escuro-ativo .cima .texto p strong {
+    color: #ffffff;
+}
+
+body.modo-escuro-ativo .planos {
+    background-color: #1a1a1a;
+    color: #ffffff;
+}
+
+body.modo-escuro-ativo .planos h2 {
+    color: #ffffff;
+}
+
+body.modo-escuro-ativo .plano-card {
+    background-color: #2a2a2a;
+    color: #ffffff;
+    border: 1px solid #444;
+}
+
+body.modo-escuro-ativo .plano-card h3 {
+    color: #ffffff;
+}
+
+body.modo-escuro-ativo .plano-card p,
+body.modo-escuro-ativo .plano-card ul {
+    color: #e0e0e0;
 }
 
 /* ==========================================================================
@@ -218,37 +222,6 @@ main {
 }
 
 /* ==========================================================================
-   5. RODAPÉ (FOOTER)
-   ========================================================================== */
-footer {
-    background-color: var(--cor-primaria);
-    color: rgba(255, 255, 255, 0.7);
-    padding: 30px 5%;
-    margin-top: 60px;
-    font-size: 0.9rem;
-    border-top: 3px solid var(--cor-acento);
-}
-
-.rodape-conteudo {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    max-width: 1400px;
-    margin: 0 auto;
-}
-
-.rodape-conteudo a {
-    color: rgba(255, 255, 255, 0.7);
-    text-decoration: none;
-    text-transform: capitalize;
-    transition: var(--transicao);
-}
-
-.rodape-conteudo a:hover {
-    color: var(--cor-acento);
-}
-
-/* ==========================================================================
    6. RESPONSIVIDADE (MEDIA QUERIES)
    ========================================================================== */
 
@@ -284,22 +257,6 @@ footer {
 
 /* Celulares */
 @media (max-width: 600px) {
-    header {
-        flex-direction: column;
-        gap: 15px;
-        padding: 15px;
-    }
-
-    header .links {
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 12px;
-    }
-
-    header .links a {
-        font-size: 0.85rem;
-    }
-
     .rodape-conteudo {
         flex-direction: column;
         gap: 10px;
