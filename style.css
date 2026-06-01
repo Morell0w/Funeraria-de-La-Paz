@@ -1,27 +1,43 @@
+/* ==========================================================================
+   1. CONFIGURAÇÕES GERAIS E VARIÁVEIS
+   ========================================================================== */
 :root {
-  /* Cores Padrão */
-  --bg-color: #ffffff;
-  --text-color: #333333;
-  --link-color: #0066cc;
-  
-  /* Cores do Header (Adicionadas para controle global) */
-  --header-bg: linear-gradient(90deg, #000, #313131, #000);
-  --header-text: #ffffff;
-  
-  /* Tipografia Padrão */
-  --font-size-base: 16px;
-  --font-scale: 1;
+    --cor-primaria: #07090c;      /* Azul-escuro solene (confiança e seriedade) */
+    --cor-secundaria: #2c3e50;    /* Tom ardósia para textos e elementos secundários */
+    --cor-acento: #b39266;        /* Dourado fosco/bronze (dignidade e respeito) */
+    --cor-fundo-claro: #f8f9fa;   /* Off-white para o fundo (suavidade visual) */
+    --cor-texto: #333333;         /* Cinza escuro para excelente leitura */
+    --cor-branco: #ffffff;
+    --fonte-titulos: 'Playfair Display', 'Georgia', serif; /* Fonte elegante e formal */
+    --fonte-corpo: 'Helvetica Neue', Arial, sans-serif;    /* Fonte limpa e moderna */
+    --transicao: all 0.3s ease;
 }
 
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
+body {
+    font-family: var(--fonte-corpo);
+    background-color: var(--cor-fundo-claro);
+    color: var(--cor-texto);
+    line-height: 1.6;
+}
+
+/* ==========================================================================
+   2. CABEÇALHO E NAVEGAÇÃO (HEADER)
+   ========================================================================== */
 header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 15px 40px;
-  background: var(--header-bg); /* Mudado para variável */
-  color: var(--header-text);    /* Mudado para variável */
+  background: var(--cor-primaria); /* Mudado para variável */
+  color: var(--cor-branco);    /* Mudado para variável */
   transition: all 0.3s ease;
+
 }
 
 #logo {
@@ -38,6 +54,7 @@ header {
   gap: 60px;
   /* Em vez de 20px fixo, usamos 'em' */
   font-size: 1.25em; 
+  text-decoration: none;
 }
 
 header img {
@@ -47,220 +64,244 @@ header img {
   border-radius: 60px;
 }
 
-header a {
-  text-decoration: none;
-  color: var(--header-text); /* Link segue a cor de texto do header */
+/* ==========================================================================
+   3. SEÇÃO PRINCIPAL (CIMA / INTRODUÇÃO)
+   ========================================================================== */
+main {
+    padding: 40px 5%;
+    max-width: 1400px;
+    margin: 0 auto;
 }
 
-header a:hover {
-  /* Se a fonte já aumenta pela acessibilidade, o hover muito grande pode quebrar o layout. 
-     Usar 1.1x do tamanho atual é mais seguro */
-  transform: scale(1.1); 
-  transition: 0.3s;
-  font-weight: bold;
+.cima {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    margin-bottom: 60px;
+    padding: 20px 0;
 }
 
-
-body {
-  background-color: var(--bg-color);
-  color: var(--text-color);
-  /* Usando rem ou em para que todo o resto do site herde a escala */
-  font-size: calc(var(--font-size-base) * var(--font-scale));
-  transition: all 0.3s ease;
+.cima .texto {
+    flex: 1;
 }
 
-
-#geral1 img{
-    height: 150px;
-    width: 150px;
+.cima .texto h1 {
+    font-family: var(--fonte-titulos);
+    color: var(--cor-primaria);
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    position: relative;
+    padding-left: 15px;
 }
 
-#cx4 img{
-    height: 150px;
-    width: 180px;
-    margin: -30px;
-    margin-top: 5px;
-    margin-bottom: 5px;
+/* Detalhe elegante ao lado do título principal */
+.cima .texto h1::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 10%;
+    height: 80%;
+    width: 4px;
+    background-color: var(--cor-acento);
 }
 
-div#geral1{
+.cima .texto p {
+    font-size: 1.05rem;
+    margin-bottom: 15px;
+    text-align: justify;
+    color: #555;
+}
+
+.cima .texto p strong {
+    color: var(--cor-primaria);
+}
+
+.cima .imagem {
+    flex: 1;
     display: flex;
     justify-content: center;
-    align-items: center;
-    gap: 100px;
 }
 
-#geral1 a{
-    text-decoration: none;
-    color: black;
+.cima .imagem img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    border: 1px solid rgba(0, 0, 0, 0.05);
 }
 
-#geral1 a:hover{
-    font-size: 15px;
-    transition: 0.3s;
+/* ==========================================================================
+   4. SEÇÃO DE PLANOS (CARDS)
+   ========================================================================== */
+.planos {
+    background-color: var(--cor-branco);
+    padding: 50px 4px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+    border: 1px solid rgba(0, 0, 0, 0.03);
 }
 
-div#texto1{
+.planos h2 {
+    font-family: var(--fonte-titulos);
+    color: var(--cor-primaria);
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+/* Container dos 3 planos dispostos em colunas */
+.planos-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    padding: 0 30px;
+}
+
+.plano-card {
+    background-color: var(--cor-fundo-claro);
+    border-radius: 8px;
+    padding: 35px 25px;
+    border-top: 4px solid var(--cor-secundaria);
+    transition: var(--transicao);
     display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 20px;
-    font-size: 20PX;
+    flex-direction: column;
 }
 
-.p1{
-    font-size: 20px;
-    margin-bottom: -10px;
-    font-weight: bold
+.plano-card h3 {
+    font-family: var(--fonte-titulos);
+    color: var(--cor-primaria);
+    font-size: 1.4rem;
+    margin-bottom: 20px;
+    text-align: center;
 }
 
-div#geral1 div{
-    background: linear-gradient(135deg, rgb(207, 207, 207), white, rgb(207, 207, 207));
-    display: flex;
-    flex-direction: column; /* ISSO faz os itens ficarem um abaixo do outro */
-    align-items: center;    /* Centraliza os itens horizontalmente na coluna */
-    justify-content: center; /* Centraliza verticalmente se houver altura definida */
-    text-align: center;     /* Centraliza o texto dentro dos parágrafos */
-    margin: 30px;
-    padding: 20px;          /* Um pouco de respiro interno */
-    border-radius: 8px;     /* Opcional: deixa os cantos arredondados */
+.plano-card ul {
+    list-style: none;
+    margin-bottom: 25px;
 }
 
-div#cx1{
-    background-color: white;
-    display: flex;
-    align-items: center;
-    margin: 30px;
-    box-shadow: 0px 0px 2px 5px black;
-}
-div#cx2{
-    background-color: white;
-    display: flex;
-    align-items: center;
-    margin: 30px;
-    box-shadow: 0px 0px 2px 5px black;
-}
-div#cx3{
-    background-color: white;
-    display: flex;
-    align-items: center;
-    margin: 30px;
-    box-shadow: 0px 0px 2px 5px black;
-}
-div#cx4{
-    background-color: white;
-    display: flex;
-    align-items: center;
-    margin: 30px;
-    padding: 30px;
-    box-shadow: 0px 0px 2px 5px black;
+.plano-card ul li {
+    font-size: 0.95rem;
+    margin-bottom: 12px;
+    position: relative;
+    padding-left: 20px;
+    color: #555;
 }
 
+/* Ícone customizado discreto antes de cada item da lista */
+.plano-card ul li::before {
+    content: "•";
+    color: var(--cor-acento);
+    font-size: 1.3rem;
+    position: absolute;
+    left: 0;
+    top: -2px;
+}
 
+/* Destaque para o plano central (Plano Família) */
+.plano-card.plano2 {
+    border-top-color: var(--cor-acento);
+    background-color: var(--cor-branco);
+    box-shadow: 0 8px 25px rgba(179, 146, 102, 0.15);
+    transform: scale(1.03);
+}
+
+/* Efeito Hover nos Cards */
+.plano-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+}
+
+.plano-card.plano2:hover {
+    transform: scale(1.04) translateY(-5px);
+}
+
+/* ==========================================================================
+   5. RODAPÉ (FOOTER)
+   ========================================================================== */
 footer {
-  /* Substitui o margin fixo por um cálculo que respeita a escala ou use um valor padrão */
-  margin-top: 390px; 
-  
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 15px 40px;
-  
-  /* Pega as mesmas cores que definimos para o topo do site */
-  background: var(--header-bg); 
-  color: var(--header-text);
-  
-  /* De 20px fixo para 1.25em (assim ele cresce junto com o botão de aumentar fonte) */
-  font-size: 1.25em; 
-  
-  /* Suaviza a transição quando os botões forem acionados */
-  transition: all 0.3s ease; 
+    background-color: var(--cor-primaria);
+    color: rgba(255, 255, 255, 0.7);
+    padding: 30px 5%;
+    margin-top: 60px;
+    font-size: 0.9rem;
+    border-top: 3px solid var(--cor-acento);
 }
 
-/* ==========================================================
-   MÁGICA DA ACESSIBILIDADE GLOBAL (ATUALIZADA COM NÍVEIS)
-   ========================================================== */
-
-/* 1. MODO ESCURO */
-body:has(#toggle-contraste:checked) {
-    --bg-color: #121212;
-    --text-color: #ffffff;
-    --link-color: #ffff00;
-    --header-bg: #000000; 
-    --header-text: rgb(190, 245, 255);
+.rodape-conteudo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1400px;
+    margin: 0 auto;
 }
 
-/* 2. NÍVEIS DE FONTE */
-
-/* Nível Padrão (Não muda nada, mantém o padrão 1) */
-body:has(#fonte-padrao:checked) {
-    --font-scale: 1;
+.rodape-conteudo a {
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+    text-transform: capitalize;
+    transition: var(--transicao);
 }
 
-/* Nível Médio (Aumento de 25%) */
-body:has(#fonte-media:checked) {
-    --font-scale: 1.25;
+.rodape-conteudo a:hover {
+    color: var(--cor-acento);
 }
 
-/* Nível Grande (Aumento de 50%) */
-body:has(#fonte-grande:checked) {
-    --font-scale: 1.5;
+/* ==========================================================================
+   6. RESPONSIVIDADE (MEDIA QUERIES)
+   ========================================================================== */
+
+/* Tablets e Telas Médias */
+@media (max-width: 992px) {
+    .cima {
+        flex-direction: column;
+        text-align: center;
+        gap: 30px;
+    }
+    
+    .cima .texto h1::before {
+        display: none;
+    }
+    
+    .cima .texto h1 {
+        padding-left: 0;
+    }
+
+    .planos-container {
+        grid-template-columns: 1fr; /* Cartões ficam um abaixo do outro */
+        gap: 25px;
+    }
+
+    .plano-card.plano2 {
+        transform: none; /* Remove a escala aumentada no mobile para não quebrar alinhamento */
+    }
+    
+    .plano-card.plano2:hover {
+        transform: translateY(-5px);
+    }
 }
 
-/* O que acontece quando passar o mouse por cima (hover) */
-.sr-only:hover {
-  border-color: rgb(190, 245, 255); /* Uma cor de destaque ao passar o mouse ajuda na acessibilidade */
-}
+/* Celulares */
+@media (max-width: 600px) {
+    header {
+        flex-direction: column;
+        gap: 15px;
+        padding: 15px;
+    }
 
-/* O que acontece quando o checkbox for MARCADO (checked) */
-.sr-only:checked {
-  background-color: #ffffff; /* Inverte o fundo para branco quando ativo */
-}
+    header .links {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 12px;
+    }
 
-/* Criando o símbolo de "✓" usando pseudo-elemento quando estiver marcado */
-.sr-only:checked::after {
-  content: '';
-  position: absolute;
-  left: 5px;
-  top: 1px;
-  width: 5px;
-  height: 10px;
-  border: solid black;
-  border-width: 0 2px 2px 0;
-  transform: rotate(45deg);
-}
+    header .links a {
+        font-size: 0.85rem;
+    }
 
-/* ... Seu código das classes .sr-only e .btn-acessivel continua igual ... */
-
-
-/* ==========================================================
-   MÁGICA DA ACESSIBILIDADE GLOBAL (AGORA POR CLASSES)
-   ========================================================== */
-
-/* 1. MODO ESCURO COORDENADO PELO JS */
-body.modo-escuro-ativo {
-    --bg-color: #121212;
-    --text-color: #ffffff;
-    --link-color: #ffff00;
-    --header-bg: #000000; 
-    --header-text: rgb(190, 245, 255);
-}
-
-/* 2. NÍVEIS DE FONTE COORDENADOS PELO JS */
-body.fonte-padrao-ativa { --font-scale: 1; }
-body.fonte-media-ativa  { --font-scale: 1.25; }
-body.fonte-grande-ativa { --font-scale: 1.5; }
-body.fonte-daniel-ativa { --font-scale: 1.75; }
-
-
-/* MANTENDO O VISUAL DOS BOTÕES ATIVOS NA TELA DE CONFIGURAÇÃO */
-body.modo-escuro-ativo #toggle-contraste + .btn-acessivel,
-body.fonte-padrao-ativa #fonte-padrao + .btn-acessivel,
-body.fonte-media-ativa #fonte-media + .btn-acessivel,
-body.fonte-grande-ativa #fonte-grande + .btn-acessivel,
-body.fonte-daniel-ativa #fonte-daniel + .btn-acessivel {
-    background-color: #ffffff;
-    color: #000000;
-    border-color: #ffffff;
-    font-weight: bold;
+    .rodape-conteudo {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+    }
 }
