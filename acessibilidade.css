@@ -4,7 +4,7 @@
   --text-color: #333333;
   --link-color: #0066cc;
   
-  /* Cores do Header (Adicionadas para controle global) */
+  /* Cores do Header (Controle global) */
   --header-bg: linear-gradient(90deg, #000, #313131, #000);
   --header-text: #ffffff;
   
@@ -13,80 +13,119 @@
   --font-scale: 1;
 }
 
+/* ==========================================================
+   ESTILOS GERAIS E ESTRUTURA
+   ========================================================== */
+
 body {
   background-color: var(--bg-color);
   color: var(--text-color);
-  /* Usando rem ou em para que todo o resto do site herde a escala */
+  /* Todo o site herda a escala base baseada no REM ou EM */
   font-size: calc(var(--font-size-base) * var(--font-scale));
   transition: all 0.3s ease;
+  margin: 0; /* Remove margens padrão do navegador */
 }
 
-body:has(#fonte-grande:checked) {
-    --font-scale: 1.5;
-}
-
-body:has(#fonte-daniel:checked) {
-    --font-scale: 1.75; 
-}
-
-header a {
-  text-decoration: none;
-  color: var(--header-text); /* Link segue a cor de texto do header */
-}
-
-header a:hover {
-  /* Se a fonte já aumenta pela acessibilidade, o hover muito grande pode quebrar o layout. 
-     Usar 1.1x do tamanho atual é mais seguro */
-  transform: scale(1.1); 
-  transition: 0.3s;
-  font-weight: bold;
-}
-
+/* Centralização moderna usando fit-content */
 .geral1 {
-    background-color: black;
-    border: 5px solid white; /* Corrigido: o atalho precisa da palavra 'solid' */
-    border-radius: 8px;
-    color: #ffffff;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    margin-top: 300px;
-    
-    /* SOLUÇÃO AQUI */
-    width: fit-content; 
-    margin-left: auto;  /* Centraliza a div na horizontal */
-    margin-right: auto; /* Centraliza a div na horizontal */
-    padding: 20px;      /* Um espacinho interno para o conteúdo não colar na borda */
-}
-
-footer {
-  /* Substitui o margin fixo por um cálculo que respeita a escala ou use um valor padrão */
-  margin-top: 390px; 
-  
+  background-color: black;
+  border: 5px solid white; 
+  border-radius: 8px;
+  color: #ffffff;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 15px 40px;
-  
-  /* Pega as mesmas cores que definimos para o topo do site */
-  background: var(--header-bg); 
-  color: var(--header-text);
-  
-  /* De 20px fixo para 1.25em (assim ele cresce junto com o botão de aumentar fonte) */
-  font-size: 1.25em; 
-  
-  /* Suaviza a transição quando os botões forem acionados */
-  transition: all 0.3s ease; 
+  text-align: center;
+  margin-top: 300px;
+  width: fit-content; 
+  margin-left: auto;  
+  margin-right: auto; 
+  padding: 20px;      
 }
+
+/* Seção de Conteúdo Geral 2 */
+div#geral2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 100px;
+}
+
+div#geral2 a {
+  text-decoration: none;
+  color: var(--text-color); /* Segue a cor do tema atual */
+  transition: transform 0.3s ease;
+}
+
+div#geral2 a:hover {
+  transform: scale(1.05); /* Zoom suave sem tremer o layout */
+}
+
+div#geral2 div {
+  background: linear-gradient(135deg, rgb(207, 207, 207), white, rgb(207, 207, 207));
+  display: flex;
+  flex-direction: column; 
+  align-items: center;    
+  justify-content: center; 
+  text-align: center;     
+  margin: 30px;
+  padding: 20px;          
+  border-radius: 8px;     
+}
+
+/* Elementos Internos do Geral 2 */
+#geral2 img {
+  height: 150px;
+  width: 150px;
+}
+
+div#texto2 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 20px;
+  font-size: 1.25em; /* Convertido para acompanhar a acessibilidade */
+}
+
+.p1 {
+  font-size: 1.25em; /* Convertido para acompanhar a acessibilidade */
+  margin-bottom: -10px;
+  font-weight: bold;
+}
+
+/* SOLUÇÃO DA DUPLICIDADE: Unificação dos IDs cx5, cx6, cx7 e cx8 em uma classe */
+.cx-box {
+  background-color: white;
+  display: flex;
+  align-items: center;
+  margin: 30px;
+  box-shadow: 0px 0px 2px 5px black;
+}
+
+/* Ajuste específico para a imagem que era do cx8 */
+.cx-box.cx-maior {
+  padding: 30px;
+}
+
+.cx-box.cx-maior img {
+  height: 150px;
+  width: 180px;
+  margin: -30px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+/* ==========================================================
+   HEADER E FOOTER
+   ========================================================== */
 
 header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 15px 40px;
-  background: var(--header-bg); /* Mudado para variável */
-  color: var(--header-text);    /* Mudado para variável */
+  background: var(--header-bg); 
+  color: var(--header-text);    
   transition: all 0.3s ease;
 }
 
@@ -94,16 +133,7 @@ header {
   display: flex;
   align-items: center;
   gap: 15px;
-  /* Em vez de 25px fixo, usamos 'em' para que ele cresça proporcionalmente */
-  font-size: 1.5em; 
-}
-
-#links {
-  display: flex;
-  align-items: center;
-  gap: 60px;
-  /* Em vez de 20px fixo, usamos 'em' */
-  font-size: 1.25em; 
+  font-size: 1.56em; /* Equivalente a ~25px, mas responsivo/acessível */
 }
 
 header img {
@@ -113,21 +143,50 @@ header img {
   border-radius: 60px;
 }
 
-.sr-only {
-  /* Remove o visual padrão do navegador */
+/* Ajustado para ID único correto (links) */
+#links {
+  display: flex;
+  align-items: center;
+  gap: 60px;
+  font-size: 1.25em; /* Equivalente a ~20px */
+}
+
+header a {
+  text-decoration: none;
+  color: var(--header-text); 
+  transition: transform 0.3s ease;
+}
+
+header a:hover {
+  transform: scale(1.1); /* Zoom seguro sem quebrar o alinhamento do header */
+  font-weight: bold;
+}
+
+footer {
+  margin-top: 390px;  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 15px 40px;
+  background: var(--header-bg); 
+  color: var(--header-text);
+  font-size: 1.25em;  
+  transition: all 0.3s ease; 
+}
+
+/* ==========================================================
+   BOTÕES E ACESSIBILIDADE VISUAL
+   ========================================================== */
+
+/* Renomeado de .sr-only para .checkbox-acessivel (Boa prática) */
+.checkbox-acessivel {
   -webkit-appearance: none;
   appearance: none;
-  
-  /* Define o tamanho do quadradinho */
   width: 18px;
   height: 18px;
-  
-  /* Aplica o fundo preto e a borda branca */
   background-color: #000000;
   border: 2px solid #ffffff;
-  border-radius: 4px; /* Deixa as pontas levemente arredondadas, opcional */
-  
-  /* Alinhamento para ficar bonitinho com o texto */
+  border-radius: 4px; 
   display: inline-block;
   vertical-align: middle;
   margin-right: 8px;
@@ -136,88 +195,15 @@ header img {
   transition: all 0.2s ease;
 }
 
-/* Estilização padrão dos botões de opção */
-.btn-acessivel {
-    display: inline-block;
-    padding: 10px 20px;          /* Padding um pouco maior como você pediu */
-    background-color: transparent; 
-    color: #ffffff;              /* Força o texto do botão não selecionado a ser BRANCO */
-    border: 2px solid transparent; 
-    border-radius: 20px;         
-    cursor: pointer;
-    transition: all 0.2s ease;   
+.checkbox-acessivel:hover {
+  border-color: rgb(190, 245, 255); 
 }
 
-/* Efeito ao passar o mouse por cima das opções */
-.btn-acessivel:hover {
-    border-color: #ffffff;       /* Borda branca ao passar o mouse */
-    background-color: rgba(255, 255, 255, 0.1); /* Fundo levemente clareado */
+.checkbox-acessivel:checked {
+  background-color: #ffffff; 
 }
 
-/* Ajuste no container das fontes para dar um respiro no layout */
-.grupo-fontes {
-    margin-top: 20px;
-    display: flex;
-    gap: 15px;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: wrap; /* Evita que quebre em telas menores */
-}
-
-/* Quando a opção for selecionada... */
-body:has(#toggle-contraste:checked) #toggle-contraste + .btn-acessivel,
-body:has(#fonte-padrao:checked) #fonte-padrao + .btn-acessivel,
-body:has(#fonte-media:checked) #fonte-media + .btn-acessivel,
-body:has(#fonte-grande:checked) #fonte-grande + .btn-acessivel,
-body:has(#fonte-daniel:checked) #fonte-daniel + .btn-acessivel { /* Adicionado aqui */
-    background-color: #ffffff;
-    color: #000000;
-    border-color: #ffffff;
-    font-weight: bold;
-}
-
-/* ==========================================================
-   MÁGICA DA ACESSIBILIDADE GLOBAL (ATUALIZADA COM NÍVEIS)
-   ========================================================== */
-
-/* 1. MODO ESCURO */
-body:has(#toggle-contraste:checked) {
-    --bg-color: #121212;
-    --text-color: #ffffff;
-    --link-color: #ffff00;
-    --header-bg: #000000; 
-    --header-text: rgb(190, 245, 255);
-}
-
-/* 2. NÍVEIS DE FONTE */
-
-/* Nível Padrão (Não muda nada, mantém o padrão 1) */
-body:has(#fonte-padrao:checked) {
-    --font-scale: 1;
-}
-
-/* Nível Médio (Aumento de 25%) */
-body:has(#fonte-media:checked) {
-    --font-scale: 1.25;
-}
-
-/* Nível Grande (Aumento de 50%) */
-body:has(#fonte-grande:checked) {
-    --font-scale: 1.5;
-}
-
-/* O que acontece quando passar o mouse por cima (hover) */
-.sr-only:hover {
-  border-color: rgb(190, 245, 255); /* Uma cor de destaque ao passar o mouse ajuda na acessibilidade */
-}
-
-/* O que acontece quando o checkbox for MARCADO (checked) */
-.sr-only:checked {
-  background-color: #ffffff; /* Inverte o fundo para branco quando ativo */
-}
-
-/* Criando o símbolo de "✓" usando pseudo-elemento quando estiver marcado */
-.sr-only:checked::after {
+.checkbox-acessivel:checked::after {
   content: '';
   position: absolute;
   left: 5px;
@@ -229,159 +215,58 @@ body:has(#fonte-grande:checked) {
   transform: rotate(45deg);
 }
 
-/* ... Seu código das classes .sr-only e .btn-acessivel continua igual ... */
-
-
-/* ==========================================================
-   MÁGICA DA ACESSIBILIDADE GLOBAL (AGORA POR CLASSES)
-   ========================================================== */
-
-/* 1. MODO ESCURO COORDENADO PELO JS */
-body.modo-escuro-ativo {
-    --bg-color: #121212;
-    --text-color: #ffffff;
-    --link-color: #ffff00;
-    --header-bg: #000000; 
-    --header-text: rgb(190, 245, 255);
+.btn-acessivel {
+  display: inline-block;
+  padding: 10px 20px;          
+  background-color: transparent; 
+  color: #ffffff;              
+  border: 2px solid transparent; 
+  border-radius: 20px;         
+  cursor: pointer;
+  transition: all 0.2s ease;   
 }
 
-/* 2. NÍVEIS DE FONTE COORDENADOS PELO JS */
+.btn-acessivel:hover {
+  border-color: #ffffff;       
+  background-color: rgba(255, 255, 255, 0.1); 
+}
+
+.grupo-fontes {
+  margin-top: 20px;
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap; 
+}
+
+/* ==========================================================
+   MÁGICA DA ACESSIBILIDADE GLOBAL (COORDENADA POR CLASSES JS)
+   ========================================================== */
+
+/* 1. MODO ESCURO / ALTO CONTRASTE */
+body.modo-escuro-ativo {
+  --bg-color: #121212;
+  --text-color: #ffffff;
+  --link-color: #ffff00;
+  --header-bg: #000000; 
+  --header-text: rgb(190, 245, 255);
+}
+
+/* 2. NÍVEIS DE FONTE */
 body.fonte-padrao-ativa { --font-scale: 1; }
 body.fonte-media-ativa  { --font-scale: 1.25; }
 body.fonte-grande-ativa { --font-scale: 1.5; }
 body.fonte-daniel-ativa { --font-scale: 1.75; }
 
-
-/* MANTENDO O VISUAL DOS BOTÕES ATIVOS NA TELA DE CONFIGURAÇÃO */
+/* MANTER BOTÕES ATIVOS VISUALMENTE */
 body.modo-escuro-ativo #toggle-contraste + .btn-acessivel,
 body.fonte-padrao-ativa #fonte-padrao + .btn-acessivel,
 body.fonte-media-ativa #fonte-media + .btn-acessivel,
 body.fonte-grande-ativa #fonte-grande + .btn-acessivel,
 body.fonte-daniel-ativa #fonte-daniel + .btn-acessivel {
-    background-color: #ffffff;
-    color: #000000;
-    border-color: #ffffff;
-    font-weight: bold;
+  background-color: #ffffff;
+  color: #000000;
+  border-color: #ffffff;
+  font-weight: bold;
 }
-
-
-
-#logo{
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    font-size: 25px
-}
-
-#links1{
-    display: flex;
-    align-items: center;
-    gap: 60px;
-    font-size: 20px;
-    
-}
-
-header img{
-    height: 120px;
-    width: 120px;
-    background-color: white;
-    border-radius: 60px;
-}
-
-header a{
-    text-decoration: none;
-    color: white;
-}
-
-header a:hover{
-    font-size: 23px;
-    transition: 0.5s;
-    font-weight: bold;
-}
-
-#geral2 img{
-    height: 150px;
-    width: 150px;
-}
-
-#cx8 img{
-    height: 150px;
-    width: 180px;
-    margin: -30px;
-    margin-top: 5px;
-    margin-bottom: 5px;
-}
-
-div#geral2{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 100px;
-}
-
-#geral2 a{
-    text-decoration: none;
-    color: black;
-}
-
-#geral2 a:hover{
-    font-size: 15px;
-    transition: 0.3s;
-}
-
-div#texto2{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 20px;
-    font-size: 20PX;
-}
-
-.p1{
-    font-size: 20px;
-    margin-bottom: -10px;
-    font-weight: bold
-}
-
-div#geral2 div{
-    background: linear-gradient(135deg, rgb(207, 207, 207), white, rgb(207, 207, 207));
-    display: flex;
-    flex-direction: column; /* ISSO faz os itens ficarem um abaixo do outro */
-    align-items: center;    /* Centraliza os itens horizontalmente na coluna */
-    justify-content: center; /* Centraliza verticalmente se houver altura definida */
-    text-align: center;     /* Centraliza o texto dentro dos parágrafos */
-    margin: 30px;
-    padding: 20px;          /* Um pouco de respiro interno */
-    border-radius: 8px;     /* Opcional: deixa os cantos arredondados */
-}
-
-div#cx5{
-    background-color: white;
-    display: flex;
-    align-items: center;
-    margin: 30px;
-    box-shadow: 0px 0px 2px 5px black;
-}
-div#cx6{
-    background-color: white;
-    display: flex;
-    align-items: center;
-    margin: 30px;
-    box-shadow: 0px 0px 2px 5px black;
-}
-div#cx7{
-    background-color: white;
-    display: flex;
-    align-items: center;
-    margin: 30px;
-    box-shadow: 0px 0px 2px 5px black;
-}
-div#cx8{
-    background-color: white;
-    display: flex;
-    align-items: center;
-    margin: 30px;
-    padding: 30px;
-    box-shadow: 0px 0px 2px 5px black;
-}
-
