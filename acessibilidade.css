@@ -265,19 +265,6 @@ body.fonte-daniel-ativa #fonte-daniel + .btn-acessivel {
 }
 
 
-body{
-    font-family: monospace;
-    background-color:  rgb(219, 219, 219);
-}
-
-header{
-display:flex;
-justify-content:space-between;
-align-items:center;
-padding:15px 40px;
-background: linear-gradient(90deg,#000,#313131,#000);
-color:white;
-}
 
 #logo{
     display: flex;
@@ -317,7 +304,7 @@ header a:hover{
     width: 150px;
 }
 
-#cx4 img{
+#cx8 img{
     height: 150px;
     width: 180px;
     margin: -30px;
@@ -368,28 +355,28 @@ div#geral2 div{
     border-radius: 8px;     /* Opcional: deixa os cantos arredondados */
 }
 
-div#cx1{
+div#cx5{
     background-color: white;
     display: flex;
     align-items: center;
     margin: 30px;
     box-shadow: 0px 0px 2px 5px black;
 }
-div#cx2{
+div#cx6{
     background-color: white;
     display: flex;
     align-items: center;
     margin: 30px;
     box-shadow: 0px 0px 2px 5px black;
 }
-div#cx3{
+div#cx7{
     background-color: white;
     display: flex;
     align-items: center;
     margin: 30px;
     box-shadow: 0px 0px 2px 5px black;
 }
-div#cx4{
+div#cx8{
     background-color: white;
     display: flex;
     align-items: center;
