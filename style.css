@@ -1,170 +1,142 @@
-:root {
-    /* Cores Padrão */
-    --bg-color: #ffffff;
-    --text-color: #333333;
-    --link-color: #0066cc;
-
-    /* Cores do Header (Adicionadas para controle global) */
-    --header-bg: linear-gradient(90deg, #000, #313131, #000);
-    --header-text: #ffffff;
-
-    /* Tipografia Padrão */
-    --font-size-base: 16px;
-    --font-scale: 1;
+body{
+    font-family: monospace;
+    background-color:  rgb(219, 219, 219);
 }
 
-
-body {
-    font-family: Arial;
-    margin: 0;
-    background: var(--bg-color);
-    font-size: calc(var(--font-size-base) * var(--font-scale));
-    transition: all 0.3s ease;
+header{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:15px 40px;
+background: linear-gradient(90deg,#000,#313131,#000);
+color:white;
 }
 
-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px 40px;
-    transition: all 0.3s ease;
-
-    background: (var(--header-bg));
-    color: var(--header-text);
-}
-
-
-#logo {
+#logo{
     display: flex;
     align-items: center;
     gap: 15px;
-    /* Em vez de 25px fixo, usamos 'em' para que ele cresça proporcionalmente */
-    font-size: 1.5em;
+    font-size: 25px
 }
 
-#links {
+#links{
     display: flex;
     align-items: center;
     gap: 60px;
-    /* Em vez de 20px fixo, usamos 'em' */
-    font-size: 1.25em;
+    font-size: 20px;
 }
 
-a:hover {
-    color: var(--link-color);
-    font-size: var(--font-size-base);
-    transition: 0.5s;
+header img{
+    height: 120px;
+    width: 120px;
+    background-color: white;
+    border-radius: 60px;
 }
 
-nav a {
-    color: white;
-    margin-left: 25px;
+header a{
     text-decoration: none;
-    font-size: var(--font-size-base);
+    color: white;
 }
 
-/* CONTEUDO */
-
-main {
-    text-align: center;
-    margin-top: 80px;
+header a:hover{
+    font-size: 23px;
+    transition: 0.5s;
+    font-weight: bold;
 }
 
-h2 {
-    margin-bottom: 30px;
-    color: #333;
+#geral1 img{
+    height: 150px;
+    width: 150px;
 }
 
-.card {
-    width: 550px;
-    margin: auto;
-    background: var(--bg-color);
-    padding: 25px;
-    border-radius: 8px;
-    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.2);
-    text-align: left;
+#cx4 img{
+    height: 150px;
+    width: 180px;
+    margin: -30px;
+    margin-top: 5px;
+    margin-bottom: 5px;
 }
 
-label {
-    font-size: var(--font-size-base);
-    color: #444;
-}
-
-.busca {
+div#geral1{
     display: flex;
-    margin-top: 10px;
+    justify-content: center;
+    align-items: center;
+    gap: 100px;
 }
 
-.busca input {
-    flex: 1;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 6px;
+#geral1 a{
+    text-decoration: none;
+    color: black;
 }
 
-.busca button {
-    margin-left: 10px;
-    background: black;
-    color: var(--text-color);
-    border: none;
-    padding: 10px 20px;
-    border-radius: 6px;
-    cursor: pointer;
+#geral1 a:hover{
+    font-size: 15px;
+    transition: 0.3s;
 }
 
-.info {
-    margin-top: 40px;
-    color: #777;
-    font-size: var(--font-size-base);
-}
-
-/* RESULTADO */
-
-#resultado {
-    margin-top: 30px;
-    font-size: var(--font-size-base);
-}
-
-/* FOOTER */
-
-footer {
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    background: black;
-    color: var(--text-color);
-    display: flex;
-    justify-content: space-between;
-    padding: 15px 40px;
-    font-size: var(--font-size-base);
-}
-
-.logo img {
-    width: 60px;
-    height: 60px;
-    object-fit: cover;
-    border-radius: 30px;
-}
-
-.logo {
+div#texto1{
     display: flex;
     align-items: center;
-    gap: 10px;
+    justify-content: center;
+    margin: 20px;
+    font-size: 20PX;
 }
 
-body:has(#toggle-contraste:checked) {
-    --bg-color: #121212;
-    --text-color: #ffffff;
-    --link-color: #ffff00;
-
-    /* Invertemos o fundo do header para destacar no modo escuro, ou mantemos se preferir */
-    --header-bg: #000000;
-    --header-text: #00ffcc;
-    /* Uma cor de alto contraste para os links no modo escuro */
+.p1{
+    font-size: 20px;
+    margin-bottom: -10px;
+    font-weight: bold
 }
 
-/* Se a Fonte Grande estiver marcada, a mágica acontece pelo 'em' */
-body:has(#toggle-fonte:checked) {
-    --font-scale: 1.4;
-    /* Aumenta o tamanho base, o que consequentemente aumenta os 'em' */
+div#geral1 div{
+    background: linear-gradient(135deg, rgb(207, 207, 207), white, rgb(207, 207, 207));
+    display: flex;
+    flex-direction: column; /* ISSO faz os itens ficarem um abaixo do outro */
+    align-items: center;    /* Centraliza os itens horizontalmente na coluna */
+    justify-content: center; /* Centraliza verticalmente se houver altura definida */
+    text-align: center;     /* Centraliza o texto dentro dos parágrafos */
+    margin: 30px;
+    padding: 20px;          /* Um pouco de respiro interno */
+    border-radius: 8px;     /* Opcional: deixa os cantos arredondados */
+}
+
+div#cx1{
+    background-color: white;
+    display: flex;
+    align-items: center;
+    margin: 30px;
+    box-shadow: 0px 0px 2px 5px black;
+}
+div#cx2{
+    background-color: white;
+    display: flex;
+    align-items: center;
+    margin: 30px;
+    box-shadow: 0px 0px 2px 5px black;
+}
+div#cx3{
+    background-color: white;
+    display: flex;
+    align-items: center;
+    margin: 30px;
+    box-shadow: 0px 0px 2px 5px black;
+}
+div#cx4{
+    background-color: white;
+    display: flex;
+    align-items: center;
+    margin: 30px;
+    padding: 30px;
+    box-shadow: 0px 0px 2px 5px black;
+}
+
+footer{
+margin-top: 310px;
+align-items: center;
+background: linear-gradient(90deg,#000,#313131,#000);
+color:white;
+display:flex;
+justify-content:center;
+padding:15px 40px;
+font-size:20px;
 }
