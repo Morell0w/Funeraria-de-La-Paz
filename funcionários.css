@@ -19,7 +19,7 @@ color:white;
     font-size: 25px
 }
 
-#links{
+#links1{
     display: flex;
     align-items: center;
     gap: 60px;
@@ -45,7 +45,7 @@ header a:hover{
     font-weight: bold;
 }
 
-#geral1 img{
+#geral2 img{
     height: 150px;
     width: 150px;
 }
@@ -58,24 +58,24 @@ header a:hover{
     margin-bottom: 5px;
 }
 
-div#geral1{
+div#geral2{
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 100px;
 }
 
-#geral1 a{
+#geral2 a{
     text-decoration: none;
     color: black;
 }
 
-#geral1 a:hover{
+#geral2 a:hover{
     font-size: 15px;
     transition: 0.3s;
 }
 
-div#texto1{
+div#texto2{
     display: flex;
     align-items: center;
     justify-content: center;
@@ -89,7 +89,7 @@ div#texto1{
     font-weight: bold
 }
 
-div#geral1 div{
+div#geral2 div{
     background: linear-gradient(135deg, rgb(207, 207, 207), white, rgb(207, 207, 207));
     display: flex;
     flex-direction: column; /* ISSO faz os itens ficarem um abaixo do outro */
@@ -131,13 +131,3 @@ div#cx4{
     box-shadow: 0px 0px 2px 5px black;
 }
 
-footer{
-margin-top: 310px;
-align-items: center;
-background: linear-gradient(90deg,#000,#313131,#000);
-color:white;
-display:flex;
-justify-content:center;
-padding:15px 40px;
-font-size:20px;
-}
