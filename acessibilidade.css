@@ -51,9 +51,10 @@ div#geral2 {
   gap: 100px;
 }
 
+/* CORREÇÃO AQUI: Força os links dentro das caixas a manterem o tom escuro mesmo no modo dark */
 div#geral2 a {
   text-decoration: none;
-  color: var(--text-color); /* Segue a cor do tema atual */
+  color: #222222; 
   transition: transform 0.3s ease;
 }
 
@@ -61,6 +62,7 @@ div#geral2 a:hover {
   transform: scale(1.05); /* Zoom suave sem tremer o layout */
 }
 
+/* CORREÇÃO AQUI: Força todo o texto dentro dos blocos internos a ficar em tons escuros */
 div#geral2 div {
   background: linear-gradient(135deg, rgb(207, 207, 207), white, rgb(207, 207, 207));
   display: flex;
@@ -71,6 +73,7 @@ div#geral2 div {
   margin: 30px;
   padding: 20px;          
   border-radius: 8px;     
+  color: #222222; /* Garante que parágrafos e textos normais fiquem em tom grafite escuro */
 }
 
 /* Elementos Internos do Geral 2 */
@@ -84,13 +87,15 @@ div#texto2 {
   align-items: center;
   justify-content: center;
   margin: 20px;
-  font-size: 1.25em; /* Convertido para acompanhar a acessibilidade */
+  font-size: 1.25em; 
 }
 
+/* CORREÇÃO AQUI: Títulos internos em preto absoluto */
 .p1 {
-  font-size: 1.25em; /* Convertido para acompanhar a acessibilidade */
+  font-size: 1.25em; 
   margin-bottom: -10px;
   font-weight: bold;
+  color: #000000; 
 }
 
 /* SOLUÇÃO DA DUPLICIDADE: Unificação dos IDs cx5, cx6, cx7 e cx8 em uma classe */
@@ -100,7 +105,7 @@ div#texto2 {
   align-items: center;
   margin: 30px;
   box-shadow: 0px 0px 2px 5px black;
-  color: #000;
+  color: #000000; /* Força o texto interno a ser preto */
 }
 
 /* Ajuste específico para a imagem que era do cx8 */
@@ -134,7 +139,7 @@ header {
   display: flex;
   align-items: center;
   gap: 15px;
-  font-size: 1.56em; /* Equivalente a ~25px, mas responsivo/acessível */
+  font-size: 1.56em; 
 }
 
 header img {
@@ -144,12 +149,11 @@ header img {
   border-radius: 60px;
 }
 
-/* Ajustado para ID único correto (links) */
 #links {
   display: flex;
   align-items: center;
   gap: 60px;
-  font-size: 1.25em; /* Equivalente a ~20px */
+  font-size: 1.25em; 
 }
 
 header a {
@@ -159,7 +163,7 @@ header a {
 }
 
 header a:hover {
-  transform: scale(1.1); /* Zoom seguro sem quebrar o alinhamento do header */
+  transform: scale(1.1); 
   font-weight: bold;
 }
 
@@ -179,7 +183,6 @@ footer {
    BOTÕES E ACESSIBILIDADE VISUAL
    ========================================================== */
 
-/* Renomeado de .sr-only para .checkbox-acessivel (Boa prática) */
 .checkbox-acessivel {
   -webkit-appearance: none;
   appearance: none;
