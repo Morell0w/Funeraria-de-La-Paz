@@ -1,0 +1,227 @@
+:root {
+  /* Cores Padrão */
+  --bg-color: #ffffff;
+  --text-color: #333333;
+  --link-color: #0066cc;
+  --link-visited: #662d91;
+  --link-hover: #0052a3;
+  --accent-color: #b39266;
+
+  /* Cores do Header */
+  --header-bg: linear-gradient(90deg, #000, #313131, #000);
+  --header-text: #ffffff;
+
+  /* Cores de Fundo e Texto */
+  --card-bg: #ffffff;
+  --card-border: #ddd;
+  --card-text: #333333;
+  --card-shadow: rgba(0, 0, 0, 0.1);
+
+  /* Tipografia Padrão */
+  --font-size-base: 16px;
+  --font-scale: 1;
+  --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  
+  /* Acessibilidade */
+  --focus-color: #4d90fe;
+  --focus-outline: 3px solid var(--focus-color);
+}
+
+/* Suporta modo escuro */
+body.modo-escuro-ativo {
+  --bg-color: #000000;
+  --text-color: #ffffff;
+  --card-bg: #121212;
+  --card-border: #444;
+  --card-text: #ffffff;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-family);
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  font-size: calc(var(--font-size-base) * var(--font-scale));
+  line-height: 1.6;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Container Principal */
+main {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  flex: 1;
+}
+
+/* Seção de Lista de Ajuda */
+#lista_ajuda {
+  background-color: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 8px;
+  padding: 40px;
+  box-shadow: 0 4px 8px var(--card-shadow);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+#lista_ajuda h2 {
+  font-size: 2rem;
+  color: var(--text-color);
+  margin-bottom: 30px;
+  padding-bottom: 15px;
+  border-bottom: 3px solid var(--accent-color);
+  font-weight: 600;
+}
+
+#lista_ajuda ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+#lista_ajuda li {
+  display: flex;
+  align-items: center;
+  padding: 15px;
+  background-color: var(--bg-color);
+  border-left: 4px solid var(--accent-color);
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+
+#lista_ajuda li:hover {
+  background-color: var(--card-bg);
+  transform: translateX(5px);
+  box-shadow: 0 2px 8px var(--card-shadow);
+}
+
+#lista_ajuda a {
+  color: var(--link-color);
+  text-decoration: none;
+  font-size: 1.05rem;
+  font-weight: 500;
+  transition: color 0.3s ease;
+  display: inline-block;
+}
+
+#lista_ajuda a:visited {
+  color: var(--link-visited);
+}
+
+#lista_ajuda a:hover,
+#lista_ajuda a:focus {
+  color: var(--link-hover);
+  text-decoration: underline;
+}
+
+#lista_ajuda a:focus {
+  outline: var(--focus-outline);
+  outline-offset: 2px;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  main {
+    padding: 20px 15px;
+  }
+
+  #lista_ajuda {
+    padding: 25px;
+  }
+
+  #lista_ajuda h2 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+  }
+
+  #lista_ajuda li {
+    padding: 12px;
+    font-size: 0.95rem;
+  }
+
+  #lista_ajuda a {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  main {
+    padding: 15px 10px;
+  }
+
+  #lista_ajuda {
+    padding: 20px;
+    border-radius: 6px;
+  }
+
+  #lista_ajuda h2 {
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+  }
+
+  #lista_ajuda ul {
+    gap: 10px;
+  }
+
+  #lista_ajuda li {
+    padding: 10px;
+    border-left-width: 3px;
+  }
+
+  #lista_ajuda a {
+    font-size: 0.95rem;
+  }
+}
+
+/* Suporte ao Modo Escuro - Ajustes Adicionais */
+body.modo-escuro-ativo #lista_ajuda {
+  border-color: #444;
+}
+
+body.modo-escuro-ativo #lista_ajuda li {
+  background-color: #1a1a1a;
+  border-left-color: var(--accent-color);
+}
+
+body.modo-escuro-ativo #lista_ajuda li:hover {
+  background-color: #222;
+  border-left-color: #d4a574;
+}
+
+body.modo-escuro-ativo #lista_ajuda a {
+  color: #64b5f6;
+}
+
+body.modo-escuro-ativo #lista_ajuda a:visited {
+  color: #ba68c8;
+}
+
+body.modo-escuro-ativo #lista_ajuda a:hover,
+body.modo-escuro-ativo #lista_ajuda a:focus {
+  color: #90caf9;
+}
+
+/* Acessibilidade - Melhorias WCAG AAA */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+/* Suporte a Zoom e Escala de Fonte */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-color: #000000;
+    --text-color: #ffffff;
+    --card-bg: #121212;
+    --card-border: #444;
+  }
+}

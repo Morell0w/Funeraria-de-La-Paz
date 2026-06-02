@@ -11,12 +11,14 @@
     <title>Painel de Funcionários - Funerária de La Paz</title>
 </head>
 <body>
-    <header id="head1">
+    <a id="pular" href="#main-content" class="skip-link">Pular para o conteúdo principal</a>
+    
+    <header id="head1" aria-label="Cabeçalho do site">
         <div id="logo">
             <img src="ccd43164-5520-470d-b7e7-92dbdd34407a.png" alt="Logo da Funerária de La Paz - Pomba">
             <h1>Funerária de La Paz</h1>
         </div>
-        <nav id="links1">
+        <nav id="links1" aria-label="Navegação principal">
             <a href="index.html">Inicio</a>
             <a href="#">Assistência Social</a>
             <a href="#">Agenda</a>
@@ -25,7 +27,7 @@
             <a href="funcionarios.html" aria-current="page">Funcionários</a>
         </nav>
     </header>
-    <main>
+    <main id="main-content" role="main">
         <div id="texto2">
             <h2>Painel de Funcionários</h2>
         </div>
@@ -68,8 +70,14 @@
             </a>
         </div>
     </main>
-    <footer>
-        <p>&copy;2026 Funerária de La Paz, Todos os direitos reservados</p>
+    <footer role="contentinfo" aria-label="Rodapé do site">
+        <div class="rodape-conteudo">
+            <p>&copy; 2026 Funerária de La Paz, Todos os direitos reservados</p>
+            <nav class="footer-links" aria-label="Links do rodapé">
+                <a href="acessibilidade.html" aria-label="Painel de Acessibilidade">Acessibilidade</a>
+                <a href="ajuda.html" aria-label="Página de Ajuda">Ajuda</a>
+            </nav>
+        </div>
     </footer>
 </body>
 </html>
