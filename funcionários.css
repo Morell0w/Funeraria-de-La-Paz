@@ -30,9 +30,11 @@ div#geral2{
     color: var(--geral2-text, black);
 }
 
-#geral2 a:hover{
-    font-size: 15px;
-    transition: 0.3s;
+#geral2 a:hover div,
+#geral2 a:focus div{
+    transform: scale(1.1);
+    transition: transform 0.3s ease;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
 div#texto2{
@@ -61,6 +63,9 @@ div#geral2 div{
     padding: 20px;
     border-radius: 8px;
     color: var(--geral2-text-color, #000);
+    min-width: 200px;
+    min-height: 250px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 div#cx1{
