@@ -15,12 +15,14 @@
 </head>
 
 <body>
-    <header id="head1">
+    <a id="pular" href="#main-content" class="skip-link">Pular para o conteúdo principal</a>
+    
+    <header id="head1" aria-label="Cabeçalho do site">
         <div id="logo">
             <img src="ccd43164-5520-470d-b7e7-92dbdd34407a.png" alt="Logo da Funerária de La Paz - Pomba">
             <h1>Funerária de La Paz</h1>
         </div>
-        <nav id="links1">
+        <nav id="links1" aria-label="Navegação principal">
             <a href="index.html">Inicio</a>
             <a href="#">Assistência Social</a>
             <a href="agenda.html" aria-current="page">Agenda</a>
@@ -30,7 +32,7 @@
         </nav>
     </header>
 
-    <main class="tudo">
+    <main id="main-content" role="main" class="tudo">
         <div class="main-header">
             <div class="title-group">
                 <h1>Sistema de Agendamento</h1>
@@ -103,10 +105,13 @@
             </div>
         </section>
     </main>
-<footer>
+<footer role="contentinfo" aria-label="Rodapé do site">
             <div class="aspas">
                 <span>© 2026 Funerária De La Paz. Todos os direitos reservados.</span>
-                <a href="#">Ajuda</a>
+                <nav aria-label="Links do rodapé">
+                    <a href="acessibilidade.html" aria-label="Painel de Acessibilidade">Acessibilidade</a>
+                    <a href="ajuda.html" aria-label="Página de Ajuda">Ajuda</a>
+                </nav>
             </div>
         </footer>
 
